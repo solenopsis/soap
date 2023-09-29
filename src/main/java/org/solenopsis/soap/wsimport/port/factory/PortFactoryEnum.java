@@ -1,6 +1,7 @@
 package org.solenopsis.soap.wsimport.port.factory;
 
 import org.solenopsis.soap.port.factory.PortFactory;
+import org.flossware.jaxws.utils.UrlUtils;
 
 
 /**
@@ -29,12 +30,8 @@ public enum PortFactoryEnum {
     public <T> T createPort() {
         return (T) getPortFactory().get();
     }
-//
-//    public <P> P createPort() {
-//        return (P) getServicePortMethod().getPortMethod().invoke(getService().getService(), NO_PARAMS);
-//    }
-//
-//    public <P> P createProxyPort() {
-//        return (P) getServicePortMethod().getPortMethod().invoke(getService().getService(), NO_PARAMS);
-//    }
+
+    public <T> T createPort(final String url) {
+        return UrlUtils.setUrl(createPort(), url);
+    }
 }
