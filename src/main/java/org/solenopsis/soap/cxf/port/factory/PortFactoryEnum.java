@@ -1,0 +1,39 @@
+package org.solenopsis.soap.cxf.port.factory;
+
+import org.solenopsis.soap.port.factory.PortFactory;
+
+/**
+ * Contains all port type factories.
+ *
+ * @author sfloess
+ */
+public enum PortFactoryEnum {
+    APEX(new ApexPortFactory()),
+    ENTERPRISE(new EnterprisePortFactory()),
+    METADATA(new MetadataPortFactory()),
+    PARTNER(new PartnerPortFactory()),
+    TOOLING(new ToolingPortFactory()),
+    ;
+
+    private final PortFactory factory;
+
+    private PortFactoryEnum(final PortFactory factory) {
+        this.factory = factory;
+    }
+
+    public <T> PortFactory<T> getPortFactory() {
+        return factory;
+    }
+
+    public <T> T createPort() {
+        return (T) getPortFactory().get();
+    }
+//
+//    public <P> P createPort() {
+//        return (P) getServicePortMethod().getPortMethod().invoke(getService().getService(), NO_PARAMS);
+//    }
+//
+//    public <P> P createProxyPort() {
+//        return (P) getServicePortMethod().getPortMethod().invoke(getService().getService(), NO_PARAMS);
+//    }
+}
