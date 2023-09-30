@@ -6,7 +6,7 @@ import java.util.Objects;
 import org.solenopsis.soap.cxf.service.factory.jaxws.ServiceEnum;
 
 /**
- * Convenience enum to hold the methods refering to port types of all built in
+ * Convenience enum to hold the methods referring to port types of all built in
  * web services.
  *
  * @author sfloess
