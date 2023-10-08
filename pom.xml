@@ -30,7 +30,9 @@
 
         <org.apache.commons_commons-lang3>3.12.0</org.apache.commons_commons-lang3>
 
-        <cxf.version>4.0.2</cxf.version>
+        <org.flossware_java>1.0</org.flossware_java>
+
+        <cxf.version>4.0.3</cxf.version>
     </properties>
 
     <build>
@@ -427,6 +429,12 @@
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http-jetty</artifactId>
             <version>${cxf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flossware</groupId>
+            <artifactId>java</artifactId>
+            <version>${org.flossware_java}</version>
         </dependency>
 
         <dependency>
