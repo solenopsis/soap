@@ -1,6 +1,6 @@
 package org.solenopsis.soap.wsimport.port.factory;
 
-import org.flossware.java.utils.CxfUrlUtils;
+import org.flossware.utils.CxfUrlUtils;
 import org.solenopsis.soap.port.factory.PortFactory;
 
 
