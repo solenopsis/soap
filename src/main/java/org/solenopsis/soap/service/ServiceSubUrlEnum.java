@@ -16,8 +16,6 @@
  */
 package org.solenopsis.soap.service;
 
-import org.solenopsis.soap.cxf.service.*;
-
 /**
  * The partial URLs for each service
  *

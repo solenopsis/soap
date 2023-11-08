@@ -1,10 +1,8 @@
-package org.solenopsis.soap.wsimport.port.factory;
+package org.solenopsis.soap.port.factory;
 
-
-import org.solenopsis.soap.port.factory.PortFactory;
-import org.solenopsis.soap.wsimport.partner.SforceService;
-import org.solenopsis.soap.wsimport.partner.Soap;
-import org.solenopsis.soap.wsimport.service.factory.ServiceEnum;
+import com.sforce.soap.partner.SforceService;
+import com.sforce.soap.partner.Soap;
+import org.solenopsis.soap.service.factory.jaxws.ServiceEnum;
 
 /**
  * Factory to create an Partner port type.

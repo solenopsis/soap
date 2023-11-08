@@ -1,9 +1,8 @@
-package org.solenopsis.soap.cxf.port.factory;
+package org.solenopsis.soap.port.factory;
 
-import org.solenopsis.soap.cxf.apex.ApexPortType;
-import org.solenopsis.soap.cxf.apex.ApexService;
-import org.solenopsis.soap.cxf.service.factory.jaxws.ServiceEnum;
-import org.solenopsis.soap.port.factory.PortFactory;
+import org.solenopsis.soap.apex.ApexPortType;
+import org.solenopsis.soap.apex.ApexService;
+import org.solenopsis.soap.service.factory.jaxws.ServiceEnum;
 
 /**
  * Factory to create an Apex port type.

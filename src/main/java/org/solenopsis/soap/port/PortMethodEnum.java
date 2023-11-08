@@ -1,13 +1,12 @@
-package org.solenopsis.soap.wsimport.port;
+package org.solenopsis.soap.port;
 
-import org.solenopsis.soap.cxf.port.*;
 import jakarta.xml.ws.WebEndpoint;
 import java.lang.reflect.Method;
 import java.util.Objects;
-import org.solenopsis.soap.cxf.service.factory.jaxws.ServiceEnum;
+import org.solenopsis.soap.service.factory.jaxws.ServiceEnum;
 
 /**
- * Convenience enum to hold the methods refering to port types of all built in
+ * Convenience enum to hold the methods referring to port types of all built in
  * web services.
  *
  * @author sfloess
