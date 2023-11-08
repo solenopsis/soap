@@ -1,10 +1,9 @@
-package org.solenopsis.soap.wsimport.port;
+package org.solenopsis.soap.port;
 
-import org.solenopsis.soap.wsimport.apex.ApexPortType;
-import org.solenopsis.soap.wsimport.metadata.MetadataPortType;
-import org.solenopsis.soap.wsimport.partner.Soap;
-import org.solenopsis.soap.wsimport.tooling.SforceServicePortType;
-
+import org.solenopsis.soap.apex.ApexPortType;
+import org.solenopsis.soap.enterprise.Soap;
+import org.solenopsis.soap.metadata.MetadataPortType;
+import org.solenopsis.soap.tooling.SforceServicePortType;
 
 
 /**
@@ -15,7 +14,7 @@ import org.solenopsis.soap.wsimport.tooling.SforceServicePortType;
 public enum PortClassEnum {
     APEX(ApexPortType.class),
     ENTERPRISE(Soap.class),
-    PARTNER(org.solenopsis.soap.wsimport.partner.Soap.class),
+    PARTNER(org.solenopsis.soap.partner.Soap.class),
     METADATA(MetadataPortType.class),
     TOOLING(SforceServicePortType.class);
 

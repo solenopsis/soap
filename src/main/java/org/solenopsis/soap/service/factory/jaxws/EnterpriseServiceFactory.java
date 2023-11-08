@@ -1,6 +1,6 @@
-package org.solenopsis.soap.cxf.service.factory.jaxws;
+package org.solenopsis.soap.service.factory.jaxws;
 
-import org.solenopsis.soap.cxf.enterprise.SforceService;
+import com.sforce.soap.enterprise.SforceService;
 import org.solenopsis.soap.service.ServiceWsdlEnum;
 import org.solenopsis.soap.service.factory.ServiceFactory;
 

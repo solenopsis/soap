@@ -93,7 +93,7 @@
 
                 <executions>
                     <execution>
-                        <id>generate-cxf-apex</id>
+                        <id>generate-apex</id>
                         <phase>generate-sources</phase>
 
                         <configuration>
@@ -110,7 +110,7 @@
                                     <wsdl>${basedir}/src/main/resources/wsdl/soap-apex.wsdl</wsdl>
                                     <extraargs>
                                         <extraarg>-p</extraarg>
-                                        <extraarg>org.solenopsis.soap.cxf.apex</extraarg>
+                                        <extraarg>org.solenopsis.soap.apex</extraarg>
                                     </extraargs>
                                 </wsdlOption>
                             </wsdlOptions>
@@ -122,7 +122,7 @@
                     </execution>
 
                     <execution>
-                        <id>generate-cxf-enterprise</id>
+                        <id>generate-enterprise</id>
                         <phase>generate-sources</phase>
 
                         <configuration>
@@ -139,7 +139,7 @@
                                     <wsdl>${basedir}/src/main/resources/wsdl/soap-enterprise.wsdl</wsdl>
                                     <extraargs>
                                         <extraarg>-p</extraarg>
-                                        <extraarg>org.solenopsis.soap.cxf.enterprise</extraarg>
+                                        <extraarg>org.solenopsis.soap.enterprise</extraarg>
                                     </extraargs>
                                 </wsdlOption>
                             </wsdlOptions>
@@ -151,7 +151,7 @@
                     </execution>
 
                     <execution>
-                        <id>generate-cxf-metadata</id>
+                        <id>generate-metadata</id>
                         <phase>generate-sources</phase>
 
                         <configuration>
@@ -168,7 +168,7 @@
                                     <wsdl>${basedir}/src/main/resources/wsdl/soap-metadata.wsdl</wsdl>
                                     <extraargs>
                                         <extraarg>-p</extraarg>
-                                        <extraarg>org.solenopsis.soap.cxf.metadata</extraarg>
+                                        <extraarg>org.solenopsis.soap.metadata</extraarg>
                                     </extraargs>
                                 </wsdlOption>
                             </wsdlOptions>
@@ -180,7 +180,7 @@
                     </execution>
 
                     <execution>
-                        <id>generate-cxf-partner</id>
+                        <id>generate--partner</id>
                         <phase>generate-sources</phase>
 
                         <configuration>
@@ -197,7 +197,7 @@
                                     <wsdl>${basedir}/src/main/resources/wsdl/soap-partner.wsdl</wsdl>
                                     <extraargs>
                                         <extraarg>-p</extraarg>
-                                        <extraarg>org.solenopsis.soap.cxf.partner</extraarg>
+                                        <extraarg>org.solenopsis.soap.partner</extraarg>
                                     </extraargs>
                                 </wsdlOption>
                             </wsdlOptions>
@@ -209,7 +209,7 @@
                     </execution>
 
                     <execution>
-                        <id>generate-cxf-tooling</id>
+                        <id>generate--tooling</id>
                         <phase>generate-sources</phase>
 
                         <configuration>
@@ -226,7 +226,7 @@
                                     <wsdl>${basedir}/src/main/resources/wsdl/soap-tooling.wsdl</wsdl>
                                     <extraargs>
                                         <extraarg>-p</extraarg>
-                                        <extraarg>org.solenopsis.soap.cxf.tooling</extraarg>
+                                        <extraarg>org.solenopsis.soap.tooling</extraarg>
                                     </extraargs>
                                 </wsdlOption>
                             </wsdlOptions>
@@ -235,171 +235,6 @@
                         <goals>
                             <goal>wsdl2java</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>com.sun.xml.ws</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <version>4.0.1</version>
-                <executions>
-                    <execution>
-                        <id>generate-wsimport-apex</id>
-                        <phase>generate-sources</phase>
-
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-
-                        <configuration>
-                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
-
-                            <wsdlFiles>
-                                <wsdlFile>soap-apex.wsdl</wsdlFile>
-                            </wsdlFiles>
-
-                            <packageName>org.solenopsis.soap.wsimport.apex</packageName>
-
-                            <sourceDestDir>
-                                ${project.build.directory}/generated-sources/wsimport/apex
-                            </sourceDestDir>
-
-                            <xjcArgs>
-                                <!-- Must use -B-XautoNameResolution when used on the command line -->
-                                <xjcArg>-XautoNameResolution</xjcArg>
-                            </xjcArgs>
-
-                            <bindingFiles>
-                                <bindingFile>${basedir}/src/main/jaxb/binding.xml</bindingFile>
-                            </bindingFiles>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>generate-wsimport-enterprise</id>
-                        <phase>generate-sources</phase>
-
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-
-                        <configuration>
-                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
-
-                            <wsdlFiles>
-                                <wsdlFile>soap-enterprise.wsdl</wsdlFile>
-                            </wsdlFiles>
-
-                            <packageName>org.solenopsis.soap.wsimport.enterprise</packageName>
-
-                            <sourceDestDir>${project.build.directory}/generated-sources/wsimport/enterprise</sourceDestDir>
-
-                            <xjcArgs>
-                                <!-- Must use -B-XautoNameResolution when used on the command line -->
-                                <xjcArg>-XautoNameResolution</xjcArg>
-                            </xjcArgs>
-
-                            <bindingFiles>
-                                <bindingFile>${basedir}/src/main/jaxb/binding.xml</bindingFile>
-                            </bindingFiles>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>generate-wsimport-metadata</id>
-                        <phase>generate-sources</phase>
-
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-
-                        <configuration>
-                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
-
-                            <wsdlFiles>
-                                <wsdlFile>soap-metadata.wsdl</wsdlFile>
-                            </wsdlFiles>
-
-                            <packageName>org.solenopsis.soap.wsimport.metadata</packageName>
-
-                            <sourceDestDir>
-                                ${project.build.directory}/generated-sources/wsimport/metadata
-                            </sourceDestDir>
-
-                            <xjcArgs>
-                                <!-- Must use -B-XautoNameResolution when used on the command line -->
-                                <xjcArg>-XautoNameResolution</xjcArg>
-                            </xjcArgs>
-
-                            <bindingFiles>
-                                <bindingFile>${basedir}/src/main/jaxb/binding.xml</bindingFile>
-                            </bindingFiles>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>generate-wsimport-partner</id>
-                        <phase>generate-sources</phase>
-
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-
-                        <configuration>
-                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
-
-                            <wsdlFiles>
-                                <wsdlFile>soap-partner.wsdl</wsdlFile>
-                            </wsdlFiles>
-
-                            <packageName>org.solenopsis.soap.wsimport.partner</packageName>
-
-                            <sourceDestDir>
-                                ${project.build.directory}/generated-sources/wsimport/partner
-                            </sourceDestDir>
-
-                            <xjcArgs>
-                                <!-- Must use -B-XautoNameResolution when used on the command line -->
-                                <xjcArg>-XautoNameResolution</xjcArg>
-                            </xjcArgs>
-
-                            <bindingFiles>
-                                <bindingFile>${basedir}/src/main/jaxb/binding.xml</bindingFile>
-                            </bindingFiles>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>generate-wsimport-toling</id>
-                        <phase>generate-sources</phase>
-
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-
-                        <configuration>
-                            <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
-
-                            <wsdlFiles>
-                                <wsdlFile>soap-tooling.wsdl</wsdlFile>
-                            </wsdlFiles>
-
-                            <packageName>org.solenopsis.soap.wsimport.tooling</packageName>
-
-                            <sourceDestDir>
-                                ${project.build.directory}/generated-sources/wsimport/tooling
-                            </sourceDestDir>
-
-                            <xjcArgs>
-                                <!-- Must use -B-XautoNameResolution when used on the command line -->
-                                <xjcArg>-XautoNameResolution</xjcArg>
-                            </xjcArgs>
-
-                            <bindingFiles>
-                                <bindingFile>${basedir}/src/main/jaxb/binding.xml</bindingFile>
-                            </bindingFiles>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

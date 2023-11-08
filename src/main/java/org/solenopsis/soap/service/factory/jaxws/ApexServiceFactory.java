@@ -1,9 +1,8 @@
-package org.solenopsis.soap.wsimport.service.factory;
+package org.solenopsis.soap.service.factory.jaxws;
 
-
+import org.solenopsis.soap.apex.ApexService;
 import org.solenopsis.soap.service.ServiceWsdlEnum;
 import org.solenopsis.soap.service.factory.ServiceFactory;
-import org.solenopsis.soap.wsimport.apex.ApexService;
 
 /**
  *

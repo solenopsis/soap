@@ -1,9 +1,8 @@
-package org.solenopsis.soap.cxf.port.factory;
+package org.solenopsis.soap.port.factory;
 
-import org.solenopsis.soap.cxf.tooling.SforceServicePortType;
-import org.solenopsis.soap.cxf.tooling.SforceServiceService;
-import org.solenopsis.soap.cxf.service.factory.jaxws.ServiceEnum;
-import org.solenopsis.soap.port.factory.PortFactory;
+import com.sforce.soap.tooling.SforceServicePortType;
+import com.sforce.soap.tooling.SforceServiceService;
+import org.solenopsis.soap.service.factory.jaxws.ServiceEnum;
 
 /**
  * Factory to create an Tooling port type.

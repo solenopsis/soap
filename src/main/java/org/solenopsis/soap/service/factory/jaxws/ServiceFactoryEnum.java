@@ -1,6 +1,6 @@
-package org.solenopsis.soap.wsimport.service.factory;
+package org.solenopsis.soap.service.factory.jaxws;
 
-import javax.wsdl.Service;
+import jakarta.xml.ws.Service;
 import org.solenopsis.soap.service.factory.ServiceFactory;
 
 /**

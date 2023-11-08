@@ -1,7 +1,6 @@
-package org.solenopsis.soap.cxf.port.factory;
+package org.solenopsis.soap.port.factory;
 
-import org.flossware.utils.CxfUrlUtils;
-import org.solenopsis.soap.port.factory.PortFactory;
+import org.flossware.utils.SoapUtils;
 
 /**
  * Contains all port type factories.
@@ -31,6 +30,6 @@ public enum PortFactoryEnum {
     }
 
     public <T> T createPort(final String url) {
-        return CxfUrlUtils.setUrl(createPort(), url);
+        return SoapUtils.setUrl(createPort(), url);
     }
 }
