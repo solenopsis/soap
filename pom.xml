@@ -30,7 +30,7 @@
 
         <org.apache.commons_commons-lang3>3.12.0</org.apache.commons_commons-lang3>
 
-        <org.flossware_java>1.0</org.flossware_java>
+        <org.flossware_commons>1.0</org.flossware_commons>
 
         <cxf.version>4.0.3</cxf.version>
     </properties>
@@ -268,8 +268,8 @@
 
         <dependency>
             <groupId>org.flossware</groupId>
-            <artifactId>java</artifactId>
-            <version>${org.flossware_java}</version>
+            <artifactId>commons</artifactId>
+            <version>${org.flossware_commons}</version>
         </dependency>
 
         <dependency>
