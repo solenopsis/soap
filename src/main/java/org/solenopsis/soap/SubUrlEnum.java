@@ -14,14 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.solenopsis.soap.service;
+package org.solenopsis.soap;
 
 /**
  * The partial URLs for each service
  *
  * @author Scot P. Floess
  */
-public enum ServiceSubUrlEnum {
+public enum SubUrlEnum {
     APEX("services/Soap/s"),
     CUSTOM("services/Soap/class"),
     ENTERPRISE("services/Soap/c"),
@@ -41,7 +41,7 @@ public enum ServiceSubUrlEnum {
      * @param sessionServerFactory is the factory that can compute a server name for a session.
      * @param webServiceSubUrl     the port for the web service.
      */
-    private ServiceSubUrlEnum(final String partialUrl) {
+    private SubUrlEnum(final String partialUrl) {
         this.partialUrl = partialUrl;
     }
 
