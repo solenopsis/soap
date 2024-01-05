@@ -1,8 +1,8 @@
 package org.solenopsis.soap.port.factory;
 
-import com.sforce.soap.enterprise.SforceService;
-import com.sforce.soap.enterprise.Soap;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.solenopsis.soap.enterprise.SforceService;
+import org.solenopsis.soap.enterprise.Soap;
 
 /**
  * Factory to create an Enterprise port type.
