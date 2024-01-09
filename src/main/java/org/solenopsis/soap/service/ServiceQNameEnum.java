@@ -2,7 +2,6 @@ package org.solenopsis.soap.service;
 
 import jakarta.xml.ws.WebServiceClient;
 import javax.xml.namespace.QName;
-import org.solenopsis.soap.service.factory.jaxws.ServiceEnum;
 
 /**
  * Convenience email holding all builtin web service QNames.

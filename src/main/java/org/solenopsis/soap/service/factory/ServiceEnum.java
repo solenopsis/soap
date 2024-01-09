@@ -1,4 +1,4 @@
-package org.solenopsis.soap.service.factory.jaxws;
+package org.solenopsis.soap.service.factory;
 
 import jakarta.xml.ws.Service;
 

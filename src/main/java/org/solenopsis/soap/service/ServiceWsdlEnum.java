@@ -12,7 +12,7 @@ public enum ServiceWsdlEnum {
     ENTERPRISE("wsdl/soap-enterprise.wsdl"),
     METADATA("wsdl/soap-metadata.wsdl"),
     PARTNER("wsdl/soap-partner.wsdl"),
-    TOOLING("wsdl/soap-tooling.wsdl")
+    TOOLING("wsdl/soap-tooling.wsdl"),
     ;
 
     final URL wsdl;
