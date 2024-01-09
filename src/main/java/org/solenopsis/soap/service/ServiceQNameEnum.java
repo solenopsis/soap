@@ -2,6 +2,7 @@ package org.solenopsis.soap.service;
 
 import jakarta.xml.ws.WebServiceClient;
 import javax.xml.namespace.QName;
+import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
 
 /**
  * Convenience email holding all builtin web service QNames.
@@ -9,11 +10,11 @@ import javax.xml.namespace.QName;
  * @author sfloess
  */
 public enum ServiceQNameEnum {
-    APEX(ServiceEnum.APEX),
-    ENTERPRISE(ServiceEnum.ENTERPRISE),
-    METADATA(ServiceEnum.METADATA),
-    PARTNER(ServiceEnum.PARTNER),
-    TOOLING(ServiceEnum.TOOLING)
+    APEX(ServiceFactoryEnum.APEX),
+    ENTERPRISE(ServiceFactoryEnum.ENTERPRISE),
+    METADATA(ServiceFactoryEnum.METADATA),
+    PARTNER(ServiceFactoryEnum.PARTNER),
+    TOOLING(ServiceFactoryEnum.TOOLING),
     ;
 
     private final QName qname;
@@ -22,8 +23,8 @@ public enum ServiceQNameEnum {
         qname = new QName(webServiceClient.targetNamespace(), webServiceClient.name());
     }
 
-    private ServiceQNameEnum(final ServiceEnum service) {
-        this(service.getService().getClass().getAnnotation(WebServiceClient.class));
+    private ServiceQNameEnum(final ServiceFactoryEnum service) {
+        this(service.createService().getClass().getAnnotation(WebServiceClient.class));
     }
 
     public QName getQName() {

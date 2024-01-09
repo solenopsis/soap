@@ -1,18 +1,27 @@
 package org.solenopsis.soap.service;
 
+import jakarta.xml.ws.Service;
+import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
+
 /**
  *
  * @author sfloess
  */
 public enum ServiceEnum {
-    APEX(ServiceWsdlEnum.APEX, ServiceQNameEnum.APEX),
-    ENTERPRISE(ServiceWsdlEnum.ENTERPRISE, ServiceQNameEnum.ENTERPRISE),
-    METADATA(ServiceWsdlEnum.METADATA, ServiceQNameEnum.METADATA),
-    PARTNER(ServiceWsdlEnum.PARTNER, ServiceQNameEnum.PARTNER),
-    TOOLING(ServiceWsdlEnum.TOOLING, ServiceQNameEnum.TOOLING),
+    APEX(ServiceQNameEnum.APEX, ServiceWsdlEnum.APEX, ServiceFactoryEnum.APEX),
+    ENTERPRISE(ServiceQNameEnum.ENTERPRISE, ServiceWsdlEnum.ENTERPRISE, ServiceFactoryEnum.ENTERPRISE),
+    METADATA(ServiceQNameEnum.METADATA, ServiceWsdlEnum.METADATA, ServiceFactoryEnum.METADATA),
+    PARTNER(ServiceQNameEnum.PARTNER, ServiceWsdlEnum.PARTNER, ServiceFactoryEnum.PARTNER),
+    TOOLING(ServiceQNameEnum.TOOLING, ServiceWsdlEnum.TOOLING, ServiceFactoryEnum.TOOLING),
     ;
 
-    private ServiceEnum(final ServiceWsdlEnum wsdl, final ServiceQNameEnum qname) {
+    private final Service service;
 
+    private ServiceEnum(final ServiceQNameEnum qname, final ServiceWsdlEnum wsdl, ServiceFactoryEnum factory) {
+        this.service = factory.createService();
+    }
+
+    <T extends Service> T getService() {
+        return (T) service;
     }
 }
