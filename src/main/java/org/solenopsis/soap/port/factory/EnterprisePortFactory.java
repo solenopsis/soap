@@ -21,6 +21,5 @@ final class EnterprisePortFactory implements PortFactory<Soap> {
         JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
         factory.setServiceClass(Soap.class);
         return (Soap) factory.create();
-//        return createPort(ServiceEnum.ENTERPRISE.getService());
     }
 }
