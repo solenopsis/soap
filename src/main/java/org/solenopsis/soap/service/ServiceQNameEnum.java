@@ -1,10 +1,10 @@
 package org.solenopsis.soap.service;
 
+import com.sforce.soap.enterprise.SforceService;
 import com.sforce.soap.tooling.SforceServiceService;
 import javax.xml.namespace.QName;
 import org.flossware.jcommons.util.SoapUtil;
 import org.solenopsis.soap.apex.ApexService;
-import org.solenopsis.soap.enterprise.Soap;
 import org.solenopsis.soap.metadata.MetadataService;
 
 /**
@@ -14,7 +14,7 @@ import org.solenopsis.soap.metadata.MetadataService;
  */
 public enum ServiceQNameEnum {
     APEX(ApexService.class),
-    ENTERPRISE(Soap.class),
+    ENTERPRISE(SforceService.class),
     METADATA(MetadataService.class),
     PARTNER(com.sforce.soap.partner.SforceService.class),
     TOOLING(SforceServiceService.class),
