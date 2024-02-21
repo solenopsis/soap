@@ -1,8 +1,7 @@
-package org.solenopsis.soap.service.factory.jaxws;
+package org.solenopsis.soap.service.factory;
 
 import org.solenopsis.soap.metadata.MetadataService;
 import org.solenopsis.soap.service.ServiceWsdlEnum;
-import org.solenopsis.soap.service.factory.ServiceFactory;
 
 /**
  * Creates an instance of the client Metadata builtin web service.

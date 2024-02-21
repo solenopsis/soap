@@ -2,7 +2,7 @@ package org.solenopsis.soap.port.factory;
 
 import com.sforce.soap.tooling.SforceServicePortType;
 import com.sforce.soap.tooling.SforceServiceService;
-import org.solenopsis.soap.service.factory.jaxws.ServiceEnum;
+import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
 
 /**
  * Factory to create an Tooling port type.
@@ -16,6 +16,6 @@ final class ToolingPortFactory implements PortFactory<SforceServicePortType> {
 
     @Override
     public SforceServicePortType get() {
-        return createPort(ServiceEnum.TOOLING.getService());
+        return createPort(ServiceFactoryEnum.TOOLING.createService());
     }
 }

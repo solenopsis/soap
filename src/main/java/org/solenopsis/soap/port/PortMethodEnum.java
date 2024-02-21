@@ -3,7 +3,7 @@ package org.solenopsis.soap.port;
 import jakarta.xml.ws.WebEndpoint;
 import java.lang.reflect.Method;
 import java.util.Objects;
-import org.solenopsis.soap.service.factory.jaxws.ServiceEnum;
+import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
 
 /**
  * Convenience enum to hold the methods referring to port types of all built in
@@ -12,11 +12,11 @@ import org.solenopsis.soap.service.factory.jaxws.ServiceEnum;
  * @author sfloess
  */
 public enum PortMethodEnum {
-    APEX(ServiceEnum.APEX),
-    ENTERPRISE(ServiceEnum.ENTERPRISE),
-    METADATA(ServiceEnum.METADATA),
-    PARTNER(ServiceEnum.PARTNER),
-    TOOLING(ServiceEnum.TOOLING)
+    APEX(ServiceFactoryEnum.APEX),
+    ENTERPRISE(ServiceFactoryEnum.ENTERPRISE),
+    METADATA(ServiceFactoryEnum.METADATA),
+    PARTNER(ServiceFactoryEnum.PARTNER),
+    TOOLING(ServiceFactoryEnum.TOOLING)
     ;
 
     private final Method portMethod;
@@ -35,8 +35,8 @@ public enum PortMethodEnum {
         this.portMethod = Objects.requireNonNull(toSet, "Port method not found!");
     }
 
-    private PortMethodEnum(final ServiceEnum service) {
-        this(service.getService().getClass().getMethods());
+    private PortMethodEnum(final ServiceFactoryEnum service) {
+        this(service.createService().getClass().getMethods());
     }
 
     public Method getPortMethod() {

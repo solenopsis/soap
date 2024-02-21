@@ -2,7 +2,7 @@ package org.solenopsis.soap.port.factory;
 
 import org.solenopsis.soap.apex.ApexPortType;
 import org.solenopsis.soap.apex.ApexService;
-import org.solenopsis.soap.service.factory.jaxws.ServiceEnum;
+import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
 
 /**
  * Factory to create an Apex port type.
@@ -16,6 +16,6 @@ final class ApexPortFactory implements PortFactory<ApexPortType> {
 
     @Override
     public ApexPortType get() {
-        return createPort(ServiceEnum.APEX.getService());
+        return createPort(ServiceFactoryEnum.APEX.createService());
     }
 }

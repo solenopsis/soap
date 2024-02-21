@@ -1,8 +1,8 @@
 package org.solenopsis.soap.port.factory;
 
-import com.sforce.soap.enterprise.SforceService;
-import com.sforce.soap.enterprise.Soap;
-import org.solenopsis.soap.service.factory.jaxws.ServiceEnum;
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.solenopsis.soap.enterprise.SforceService;
+import org.solenopsis.soap.enterprise.Soap;
 
 /**
  * Factory to create an Enterprise port type.
@@ -10,12 +10,16 @@ import org.solenopsis.soap.service.factory.jaxws.ServiceEnum;
  * @author sfloess
  */
 final class EnterprisePortFactory implements PortFactory<Soap> {
-        Soap createPort(final SforceService service) {
-        return service.getSoap();
+    Soap createPort(final SforceService service) {
+        JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+        factory.setServiceClass(SforceService.class);
+        return (Soap) factory.create();
     }
 
     @Override
     public Soap get() {
-        return createPort(ServiceEnum.ENTERPRISE.getService());
+        JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+        factory.setServiceClass(Soap.class);
+        return (Soap) factory.create();
     }
 }

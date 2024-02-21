@@ -2,7 +2,7 @@ package org.solenopsis.soap.port.factory;
 
 import com.sforce.soap.partner.SforceService;
 import com.sforce.soap.partner.Soap;
-import org.solenopsis.soap.service.factory.jaxws.ServiceEnum;
+import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
 
 /**
  * Factory to create an Partner port type.
@@ -16,6 +16,6 @@ final class PartnerPortFactory implements PortFactory<Soap> {
 
     @Override
     public Soap get() {
-        return createPort(ServiceEnum.PARTNER.getService());
+        return createPort(ServiceFactoryEnum.PARTNER.createService());
     }
 }
