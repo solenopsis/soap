@@ -1,8 +1,7 @@
-package org.solenopsis.soap.service.factory.jaxws;
+package org.solenopsis.soap.service.factory;
 
 import com.sforce.soap.enterprise.SforceService;
 import org.solenopsis.soap.service.ServiceWsdlEnum;
-import org.solenopsis.soap.service.factory.ServiceFactory;
 
 /**
  * Creates an instance of the client Enterprise builtin web service.
