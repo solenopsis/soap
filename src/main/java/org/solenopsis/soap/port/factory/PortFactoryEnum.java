@@ -1,6 +1,6 @@
 package org.solenopsis.soap.port.factory;
 
-import org.flossware.jcommons.util.SoapUtil;
+import org.flossware.commons.util.SoapUtil;
 
 /**
  * Contains all port type factories.
