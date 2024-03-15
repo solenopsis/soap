@@ -1,7 +1,5 @@
 package org.solenopsis.soap.service.factory;
 
-import jakarta.xml.ws.Service;
-
 /**
  * Factory to create actual Service implementations.
  *

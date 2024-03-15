@@ -32,7 +32,7 @@
 
         <org.flossware_commons>1.3</org.flossware_commons>
 
-        <cxf.version>4.0.3</cxf.version>
+        <cxf.version>3.3.2</cxf.version>
     </properties>
 
     <build>
