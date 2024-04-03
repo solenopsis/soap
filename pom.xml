@@ -32,7 +32,7 @@
 
         <org.flossware_commons>1.3</org.flossware_commons>
 
-        <cxf.version>4.0.3</cxf.version>
+        <com.sun.xml.ws_jaxws-maven-plugin>4.0.2</com.sun.xml.ws_jaxws-maven-plugin>
     </properties>
 
     <build>
@@ -87,153 +87,196 @@
 
         <plugins>
             <plugin>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-codegen-plugin</artifactId>
-                <version>${cxf.version}</version>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>${com.sun.xml.ws_jaxws-maven-plugin}</version>
 
                 <executions>
                     <execution>
                         <id>generate-apex</id>
-                        <phase>generate-sources</phase>
 
                         <configuration>
-                            <defaultOptions>
-                                <bindingFiles>
-                                    <bindingFile>${basedir}/src/main/jaxb/binding.xml</bindingFile>
-                                </bindingFiles>
-                                <noAddressBinding>true</noAddressBinding>
-                                <autoNameResolution>true</autoNameResolution>
-                            </defaultOptions>
+                            <packageName>org.solenopsis.soap.apex</packageName>
+                            <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
 
-                            <wsdlOptions>
-                                <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/wsdl/soap-apex.wsdl</wsdl>
-                                    <extraargs>
-                                        <extraarg>-p</extraarg>
-                                        <extraarg>org.solenopsis.soap.apex</extraarg>
-                                    </extraargs>
-                                </wsdlOption>
-                            </wsdlOptions>
+                            <wsdlFiles>
+                                <wsdlFile>soap-apex.wsdl</wsdlFile>
+                            </wsdlFiles>
+
+                            <bindingDirectory>src/main/resources/jaxb</bindingDirectory>
+
+                            <bindingFiles>
+                                <bindingFile>bindings.xml</bindingFile>
+                            </bindingFiles>
+
+                            <sourceDestDir>${project.build.directory}/generated-sources/jaxws/wsimport</sourceDestDir>
+
+                            <xjcArgs>
+                                <!-- Must use -B-XautoNameResolution when used on the command line -->
+                                <xjcArg>-XautoNameResolution</xjcArg>
+                            </xjcArgs>
+
+                            <!-- Without this, multiple WSDLs won't be processed :( -->
+                            <staleFile>${project.build.directory}/jaxws/stale/wsdl.apex.done</staleFile>
+
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalDTD=all</vmArg>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
                         </configuration>
 
                         <goals>
-                            <goal>wsdl2java</goal>
+                            <goal>wsimport</goal>
                         </goals>
                     </execution>
 
                     <execution>
                         <id>generate-enterprise</id>
-                        <phase>generate-sources</phase>
 
                         <configuration>
-                            <defaultOptions>
-                                <bindingFiles>
-                                    <bindingFile>${basedir}/src/main/jaxb/binding.xml</bindingFile>
-                                </bindingFiles>
-                                <noAddressBinding>true</noAddressBinding>
-                                <autoNameResolution>true</autoNameResolution>
-                            </defaultOptions>
+                            <packageName>org.solenopsis.soap.enterprise</packageName>
+                            <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
 
-                            <wsdlOptions>
-                                <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/wsdl/soap-enterprise.wsdl</wsdl>
-                                    <extraargs>
-                                        <extraarg>-p</extraarg>
-                                        <extraarg>org.solenopsis.soap.enterprise</extraarg>
-                                    </extraargs>
-                                </wsdlOption>
-                            </wsdlOptions>
+                            <wsdlFiles>
+                                <wsdlFile>soap-enterprise.wsdl</wsdlFile>
+                            </wsdlFiles>
+
+                            <bindingDirectory>src/main/resources/jaxb</bindingDirectory>
+
+                            <bindingFiles>
+                                <bindingFile>bindings.xml</bindingFile>
+                            </bindingFiles>
+
+                            <sourceDestDir>${project.build.directory}/generated-sources/jaxws/wsimport</sourceDestDir>
+
+                            <xjcArgs>
+                                <!-- Must use -B-XautoNameResolution when used on the command line -->
+                                <xjcArg>-XautoNameResolution</xjcArg>
+                            </xjcArgs>
+
+                            <!-- Without this, multiple WSDLs won't be processed :( -->
+                            <staleFile>${project.build.directory}/jaxws/stale/wsdl.enterprise.done</staleFile>
+
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalDTD=all</vmArg>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
                         </configuration>
 
                         <goals>
-                            <goal>wsdl2java</goal>
+                            <goal>wsimport</goal>
                         </goals>
                     </execution>
 
                     <execution>
                         <id>generate-metadata</id>
-                        <phase>generate-sources</phase>
 
                         <configuration>
-                            <defaultOptions>
-                                <bindingFiles>
-                                    <bindingFile>${basedir}/src/main/jaxb/binding.xml</bindingFile>
-                                </bindingFiles>
-                                <noAddressBinding>true</noAddressBinding>
-                                <autoNameResolution>true</autoNameResolution>
-                            </defaultOptions>
+                            <packageName>org.solenopsis.soap.metadata</packageName>
+                            <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
+                            <wsdlFiles>
+                                <wsdlFile>soap-metadata.wsdl</wsdlFile>
+                            </wsdlFiles>
 
-                            <wsdlOptions>
-                                <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/wsdl/soap-metadata.wsdl</wsdl>
-                                    <extraargs>
-                                        <extraarg>-p</extraarg>
-                                        <extraarg>org.solenopsis.soap.metadata</extraarg>
-                                    </extraargs>
-                                </wsdlOption>
-                            </wsdlOptions>
+                            <bindingDirectory>src/main/resources/jaxb</bindingDirectory>
+
+                            <bindingFiles>
+                                <bindingFile>bindings.xml</bindingFile>
+                            </bindingFiles>
+
+                            <sourceDestDir>${project.build.directory}/generated-sources/jaxws/wsimport</sourceDestDir>
+
+                            <xjcArgs>
+                                <!-- Must use -B-XautoNameResolution when used on the command line -->
+                                <xjcArg>-XautoNameResolution</xjcArg>
+                            </xjcArgs>
+
+                            <!-- Without this, multiple WSDLs won't be processed :( -->
+                            <staleFile>${project.build.directory}/jaxws/stale/wsdl.metadata.done</staleFile>
+
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalDTD=all</vmArg>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
                         </configuration>
 
                         <goals>
-                            <goal>wsdl2java</goal>
+                            <goal>wsimport</goal>
                         </goals>
                     </execution>
 
                     <execution>
-                        <id>generate--partner</id>
-                        <phase>generate-sources</phase>
+                        <id>generate-partner</id>
 
                         <configuration>
-                            <defaultOptions>
-                                <bindingFiles>
-                                    <bindingFile>${basedir}/src/main/jaxb/binding.xml</bindingFile>
-                                </bindingFiles>
-                                <noAddressBinding>true</noAddressBinding>
-                                <autoNameResolution>true</autoNameResolution>
-                            </defaultOptions>
+                            <packageName>org.solenopsis.soap.partner</packageName>
+                            <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
+                            <wsdlFiles>
+                                <wsdlFile>soap-partner.wsdl</wsdlFile>
+                            </wsdlFiles>
 
-                            <wsdlOptions>
-                                <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/wsdl/soap-partner.wsdl</wsdl>
-                                    <extraargs>
-                                        <extraarg>-p</extraarg>
-                                        <extraarg>org.solenopsis.soap.partner</extraarg>
-                                    </extraargs>
-                                </wsdlOption>
-                            </wsdlOptions>
+                            <bindingDirectory>src/main/resources/jaxb</bindingDirectory>
+
+                            <bindingFiles>
+                                <bindingFile>bindings.xml</bindingFile>
+                            </bindingFiles>
+
+                            <sourceDestDir>${project.build.directory}/generated-sources/jaxws/wsimport</sourceDestDir>
+
+                            <xjcArgs>
+                                <!-- Must use -B-XautoNameResolution when used on the command line -->
+                                <xjcArg>-XautoNameResolution</xjcArg>
+                            </xjcArgs>
+
+                            <!-- Without this, multiple WSDLs won't be processed :( -->
+                            <staleFile>${project.build.directory}/jaxws/stale/wsdl.partner.done</staleFile>
+
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalDTD=all</vmArg>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
                         </configuration>
 
                         <goals>
-                            <goal>wsdl2java</goal>
+                            <goal>wsimport</goal>
                         </goals>
                     </execution>
 
                     <execution>
-                        <id>generate--tooling</id>
-                        <phase>generate-sources</phase>
+                        <id>generate-tooling</id>
 
                         <configuration>
-                            <defaultOptions>
-                                <bindingFiles>
-                                    <bindingFile>${basedir}/src/main/jaxb/binding.xml</bindingFile>
-                                </bindingFiles>
-                                <noAddressBinding>true</noAddressBinding>
-                                <autoNameResolution>true</autoNameResolution>
-                            </defaultOptions>
+                            <packageName>org.solenopsis.soap.tooling</packageName>
+                            <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
 
-                            <wsdlOptions>
-                                <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/wsdl/soap-tooling.wsdl</wsdl>
-                                    <extraargs>
-                                        <extraarg>-p</extraarg>
-                                        <extraarg>org.solenopsis.soap.tooling</extraarg>
-                                    </extraargs>
-                                </wsdlOption>
-                            </wsdlOptions>
+                            <wsdlFiles>
+                                <wsdlFile>soap-tooling.wsdl</wsdlFile>
+                            </wsdlFiles>
+
+                            <bindingDirectory>src/main/resources/jaxb</bindingDirectory>
+
+                            <bindingFiles>
+                                <bindingFile>bindings.xml</bindingFile>
+                            </bindingFiles>
+
+                            <sourceDestDir>${project.build.directory}/generated-sources/jaxws/wsimport</sourceDestDir>
+
+                            <xjcArgs>
+                                <!-- Must use -B-XautoNameResolution when used on the command line -->
+                                <xjcArg>-XautoNameResolution</xjcArg>
+                            </xjcArgs>
+
+                            <!-- Without this, multiple WSDLs won't be processed :( -->
+                            <staleFile>${project.build.directory}/jaxws/stale/wsdl.tooling.done</staleFile>
+
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalDTD=all</vmArg>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
                         </configuration>
 
                         <goals>
-                            <goal>wsdl2java</goal>
+                            <goal>wsimport</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -246,24 +289,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${org.apache.commons_commons-lang3}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-frontend-jaxws</artifactId>
-            <version>${cxf.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-transports-http</artifactId>
-            <version>${cxf.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-transports-http-jetty</artifactId>
-            <version>${cxf.version}</version>
         </dependency>
 
         <dependency>
