@@ -5,7 +5,7 @@
 
     <groupId>org.solenopsis</groupId>
     <artifactId>soap</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
 
     <name>Solenopsis:  Salesforce SOAP Library</name>
     <description>This project is a Java SOAP library for SFDC.</description>
