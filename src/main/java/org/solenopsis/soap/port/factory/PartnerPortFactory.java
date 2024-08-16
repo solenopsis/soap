@@ -1,7 +1,7 @@
 package org.solenopsis.soap.port.factory;
 
-import com.sforce.soap.partner.SforceService;
-import com.sforce.soap.partner.Soap;
+import org.solenopsis.soap.partner.SforceService;
+import org.solenopsis.soap.partner.Soap;
 import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
 
 /**

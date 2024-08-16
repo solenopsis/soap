@@ -1,8 +1,8 @@
 package org.solenopsis.soap.port.factory;
 
-import com.sforce.soap.tooling.SforceServicePortType;
-import com.sforce.soap.tooling.SforceServiceService;
 import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
+import org.solenopsis.soap.tooling.SforceServicePortType;
+import org.solenopsis.soap.tooling.SforceServiceService;
 
 /**
  * Factory to create an Tooling port type.

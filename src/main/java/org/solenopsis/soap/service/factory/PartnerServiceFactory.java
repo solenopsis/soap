@@ -1,6 +1,6 @@
 package org.solenopsis.soap.service.factory;
 
-import com.sforce.soap.partner.SforceService;
+import org.solenopsis.soap.partner.SforceService;
 import org.solenopsis.soap.service.ServiceWsdlEnum;
 
 /**
