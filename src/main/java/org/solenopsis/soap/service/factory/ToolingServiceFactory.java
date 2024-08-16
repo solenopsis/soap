@@ -1,7 +1,7 @@
 package org.solenopsis.soap.service.factory;
 
-import com.sforce.soap.tooling.SforceServiceService;
 import org.solenopsis.soap.service.ServiceWsdlEnum;
+import org.solenopsis.soap.tooling.SforceServiceService;
 
 /**
  * Creates an instance of the client Tooling builtin web service.

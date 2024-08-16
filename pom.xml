@@ -5,7 +5,7 @@
 
     <groupId>org.solenopsis</groupId>
     <artifactId>soap</artifactId>
-    <version>1.3</version>
+    <version>1.4</version>
 
     <name>Solenopsis:  Salesforce SOAP Library</name>
     <description>This project is a Java SOAP library for SFDC.</description>
@@ -101,6 +101,7 @@
                                 <bindingFiles>
                                     <bindingFile>${basedir}/src/main/resources/jaxb/global-binding.xml</bindingFile>
                                 </bindingFiles>
+
                                 <noAddressBinding>true</noAddressBinding>
                                 <autoNameResolution>true</autoNameResolution>
                             </defaultOptions>
@@ -113,28 +114,7 @@
                                         <extraarg>org.solenopsis.soap.apex</extraarg>
                                     </extraargs>
                                 </wsdlOption>
-                            </wsdlOptions>
-                        </configuration>
 
-                        <goals>
-                            <goal>wsdl2java</goal>
-                        </goals>
-                    </execution>
-
-                    <execution>
-                        <id>generate-enterprise</id>
-                        <phase>generate-sources</phase>
-
-                        <configuration>
-                            <defaultOptions>
-                                <bindingFiles>
-                                    <bindingFile>${basedir}/src/main/resources/jaxb/global-binding.xml</bindingFile>
-                                </bindingFiles>
-                                <noAddressBinding>true</noAddressBinding>
-                                <autoNameResolution>true</autoNameResolution>
-                            </defaultOptions>
-
-                            <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/wsdl/soap-enterprise.wsdl</wsdl>
                                     <extraargs>
@@ -142,28 +122,7 @@
                                         <extraarg>org.solenopsis.soap.enterprise</extraarg>
                                     </extraargs>
                                 </wsdlOption>
-                            </wsdlOptions>
-                        </configuration>
 
-                        <goals>
-                            <goal>wsdl2java</goal>
-                        </goals>
-                    </execution>
-
-                    <execution>
-                        <id>generate-metadata</id>
-                        <phase>generate-sources</phase>
-
-                        <configuration>
-                            <defaultOptions>
-                                <bindingFiles>
-                                    <bindingFile>${basedir}/src/main/resources/jaxb/global-binding.xml</bindingFile>
-                                </bindingFiles>
-                                <noAddressBinding>true</noAddressBinding>
-                                <autoNameResolution>true</autoNameResolution>
-                            </defaultOptions>
-
-                            <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/wsdl/soap-metadata.wsdl</wsdl>
                                     <extraargs>
@@ -171,28 +130,7 @@
                                         <extraarg>org.solenopsis.soap.metadata</extraarg>
                                     </extraargs>
                                 </wsdlOption>
-                            </wsdlOptions>
-                        </configuration>
 
-                        <goals>
-                            <goal>wsdl2java</goal>
-                        </goals>
-                    </execution>
-
-                    <execution>
-                        <id>generate--partner</id>
-                        <phase>generate-sources</phase>
-
-                        <configuration>
-                            <defaultOptions>
-                                <bindingFiles>
-                                    <bindingFile>${basedir}/src/main/resources/jaxb/global-binding.xml</bindingFile>
-                                </bindingFiles>
-                                <noAddressBinding>true</noAddressBinding>
-                                <autoNameResolution>true</autoNameResolution>
-                            </defaultOptions>
-
-                            <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/wsdl/soap-partner.wsdl</wsdl>
                                     <extraargs>
@@ -200,28 +138,7 @@
                                         <extraarg>org.solenopsis.soap.partner</extraarg>
                                     </extraargs>
                                 </wsdlOption>
-                            </wsdlOptions>
-                        </configuration>
 
-                        <goals>
-                            <goal>wsdl2java</goal>
-                        </goals>
-                    </execution>
-
-                    <execution>
-                        <id>generate--tooling</id>
-                        <phase>generate-sources</phase>
-
-                        <configuration>
-                            <defaultOptions>
-                                <bindingFiles>
-                                    <bindingFile>${basedir}/src/main/resources/jaxb/global-binding.xml</bindingFile>
-                                </bindingFiles>
-                                <noAddressBinding>true</noAddressBinding>
-                                <autoNameResolution>true</autoNameResolution>
-                            </defaultOptions>
-
-                            <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/wsdl/soap-tooling.wsdl</wsdl>
                                     <extraargs>
