@@ -62,7 +62,7 @@ jobs:
                   "httpHeaders": {
                     "property": {
                       "name": "Authorization",
-                      "value": "Bearer ${{ secrets.PACKAGECLOUD_TOKEN }}"
+                      "value": "Bearer ${{ secrets.FLOSSWARE_PACKAGECLOUD_TOKEN }}"
                     }
                   }
                 }
