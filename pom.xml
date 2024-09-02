@@ -196,6 +196,13 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>flossware-packagecloud</id>
+            <url>https://github.com/FlossWare/commons</url>
+        </repository>
+    </repositories>
         
     <distributionManagement>
         <repository>
