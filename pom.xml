@@ -33,7 +33,17 @@
         <org.flossware_commons>1.4</org.flossware_commons>
 
         <cxf.version>4.0.3</cxf.version>
+        
+        <org.junit.jupiter_junit-jupiter-api>5.10.0</org.junit.jupiter_junit-jupiter-api>
+
+        <message>Automated Version Bump ${project.version} [ci skip]</message>
     </properties>
+
+    <scm>
+        <connection>scm:git:https://github.com/solenopsis/soap.git</connection>
+        <developerConnection>scm:git:https://github.com/solensops/soap.git</developerConnection>
+        <url>https://github.com/solenopsis/soap</url>
+    </scm>
 
     <build>
         <pluginManagement>
@@ -155,6 +165,22 @@
                     </execution>
                 </executions>
             </plugin>
+            
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-plugin</artifactId>
+                    <version>${org.apache.maven.plugins_maven-scm-plugin}</version>
+
+                    <configuration>
+                        <providerImplementations>
+                            <git>git</git>
+                        </providerImplementations>
+
+                        <tag>${project.version}</tag>
+                    </configuration>
+                </plugin>
+        </plugins>
         </plugins>
     </build>
 
@@ -208,7 +234,7 @@
         <repository>
             <id>packagecloud-solenopsis</id>
             <name>packagecloud-solenopsis</name>
-            <url>https://packagecloud.io/solenopsis/java/maven2/</url>
+            <url>https://packagecloud.io/solenopsis/soap/maven2/</url>
         </repository>
     </distributionManagement>
 </project>
