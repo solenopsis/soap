@@ -46,7 +46,7 @@ jobs:
         with:
           global: true
           name: 'Version Bump'
-          email: 'version-bump@solenopsis.org'
+          email: 'version-bump@flossware.org'
           actor: 'VersionBump'
           token: '${{ secrets.GITHUB_TOKEN }}'
 
