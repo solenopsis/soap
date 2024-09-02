@@ -181,7 +181,6 @@
                     </configuration>
                 </plugin>
         </plugins>
-        </plugins>
     </build>
 
     <dependencies>
