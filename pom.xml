@@ -200,7 +200,7 @@
     <repositories>
         <repository>
             <id>flossware-packagecloud</id>
-            <url>https://github.com/FlossWare/commons</url>
+            <url>https://packagecloud.io/flossware/java/maven2</url>
         </repository>
     </repositories>
         
