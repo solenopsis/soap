@@ -29,12 +29,12 @@ jobs:
           servers: |
             [
               {
-                "id": "packagecloud-solenopsis",
+                "id": "packagecloud-flossware",
                 "configuration": {
                   "httpHeaders": {
                     "property": {
                       "name": "Authorization",
-                      "value": "Bearer ${{ secrets.PACKAGECLOUD_TOKEN }}"
+                      "value": "Bearer ${{ secrets.FLOSSWARE_PACKAGECLOUD_TOKEN }}"
                     }
                   }
                 }
@@ -49,25 +49,6 @@ jobs:
           email: 'version-bump@solenopsis.org'
           actor: 'VersionBump'
           token: '${{ secrets.GITHUB_TOKEN }}'
-
-      - name: Preparing settings.xml
-        uses: s4u/maven-settings-action@v3.0.0
-        with:
-          githubServer: false
-          servers: |
-            [
-              {
-                "id": "packagecloud-solenopsis",
-                "configuration": {
-                  "httpHeaders": {
-                    "property": {
-                      "name": "Authorization",
-                      "value": "Bearer ${{ secrets.FLOSSWARE_PACKAGECLOUD_TOKEN }}"
-                    }
-                  }
-                }
-              }
-            ]
 
       - name: Incrementing pom.xml version
         run: "mvn -U build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.nextMinorVersion} versions:commit"
