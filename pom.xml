@@ -43,7 +43,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/solenopsis/soap.git</connection>
-        <developerConnection>scm:git:https://github.com/solensops/soap.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/solenopsis/soap.git</developerConnection>
         <url>https://github.com/solenopsis/soap</url>
     </scm>
 
