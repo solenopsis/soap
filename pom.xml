@@ -32,7 +32,7 @@
 
         <org.apache.commons_commons-lang3>3.17.0</org.apache.commons_commons-lang3>
 
-        <org.flossware_commons>1.4</org.flossware_commons>
+        <org.flossware_commons>1.9</org.flossware_commons>
 
         <cxf.version>4.0.3</cxf.version>
         
