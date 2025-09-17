@@ -5,7 +5,7 @@
 
     <groupId>org.solenopsis</groupId>
     <artifactId>soap</artifactId>
-    <version>1.7</version>
+    <version>1.8</version>
 
     <name>Solenopsis:  Salesforce SOAP Library</name>
     <description>This project is a Java SOAP library for SFDC.</description>
@@ -30,7 +30,7 @@
 
         <org.apache.maven.plugins_maven-scm-plugin>2.0.1</org.apache.maven.plugins_maven-scm-plugin>
 
-        <org.apache.commons_commons-lang3>3.17.0</org.apache.commons_commons-lang3>
+        <org.apache.commons_commons-lang3>3.18.0</org.apache.commons_commons-lang3>
 
         <org.flossware_commons>1.9</org.flossware_commons>
 
