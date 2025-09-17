@@ -34,7 +34,7 @@
 
         <org.flossware_commons>1.9</org.flossware_commons>
 
-        <cxf.version>4.0.3</cxf.version>
+        <cxf.version>4.0.9</cxf.version>
         
         <org.junit.jupiter_junit-jupiter-api>5.10.0</org.junit.jupiter_junit-jupiter-api>
 
