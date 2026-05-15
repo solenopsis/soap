@@ -133,7 +133,7 @@ These are official Salesforce WSDL files that define the SOAP interfaces.
 
 - **Java 17+**
 - **Apache CXF 4.0+** - SOAP framework
-- **FlossWare Commons 1.9+** - Foundation utilities
+- **FlossWare Commons 1.10+** - Foundation utilities
 - **Apache Commons Lang3 3.18+**
 
 ## Testing

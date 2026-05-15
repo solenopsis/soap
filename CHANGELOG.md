@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.8] - 2024-09-17
 
+### Changed
+- Replaced all wildcard imports with explicit imports for better code clarity
+- Updated FlossWare Commons dependency to 1.10
+- All test files now use explicit static imports from JUnit assertions
+
 ### Added
 - Comprehensive test suite with 25 unit tests
   - `PortFactoryEnumTest` - 11 tests for port creation
@@ -19,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Updated Apache CXF to 4.0.9
 - Updated Apache Commons Lang3 to 3.18.0
-- Updated FlossWare Commons dependency to 1.9
+- Updated FlossWare Commons dependency to 1.10
 - Improved JavaDoc throughout
 
 ### Fixed
