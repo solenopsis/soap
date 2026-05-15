@@ -5,6 +5,16 @@ All notable changes to the Solenopsis SOAP library will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11] - 2026-05-15
+
+### Changed
+- Updated FlossWare dependency from commons to jcommons
+- Updated org.flossware:commons:1.10 → org.flossware:jcommons:1.14
+- Updated Java imports from org.flossware.commons.* → org.flossware.jcommons.*
+
+### Breaking Changes
+- Requires FlossWare JCommons 1.14+ (renamed from Commons)
+
 ## [1.8] - 2024-09-17
 
 ### Changed
