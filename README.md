@@ -31,7 +31,7 @@ This library provides pre-generated SOAP clients for Salesforce APIs using Apach
 <dependency>
     <groupId>org.solenopsis</groupId>
     <artifactId>soap</artifactId>
-    <version>1.8</version>
+    <version>1.14</version>
 </dependency>
 
 <repositories>
@@ -150,9 +150,12 @@ mvn clean install -DskipTests
 
 **Test Coverage:**
 - Port factory tests - 11 tests
+- Port class tests - 7 tests
+- Port method tests - 8 tests
 - Service enum tests - 7 tests  
 - Service QName tests - 7 tests
-- **Total: 25 tests** with 0 failures
+- Service WSDL tests - 8 tests
+- **Total: 48 tests** with 0 failures
 
 ## Dependencies
 
