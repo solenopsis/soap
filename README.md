@@ -31,7 +31,7 @@ This library provides pre-generated SOAP clients for Salesforce APIs using Apach
 <dependency>
     <groupId>org.solenopsis</groupId>
     <artifactId>soap</artifactId>
-    <version>1.17</version>
+    <version>1.18</version>
 </dependency>
 
 <repositories>
