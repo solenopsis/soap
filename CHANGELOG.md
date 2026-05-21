@@ -5,6 +5,35 @@ All notable changes to the Solenopsis SOAP library will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.17] - 2026-05-21
+
+### Added
+- Comprehensive JavaDoc documentation for all 25 Java files (19 main + 6 test)
+- Class-level and method-level JavaDoc with @param, @return, and @throws tags
+- Usage examples in key factory classes (PortFactoryEnum, ServiceFactoryEnum)
+- Cross-references using {@link} tags throughout the codebase
+- Detailed API descriptions for all 5 Salesforce APIs
+
+### Changed
+- Enhanced all enum class JavaDoc with detailed descriptions
+- Improved all factory interface and implementation JavaDoc
+- Added comprehensive test method documentation
+
+### Fixed
+- Fixed typo in ServiceQNameEnum JavaDoc (changed "email" to "enum")
+
+## [1.16] - 2026-05-21
+
+### Changed
+- Updated FlossWare JCommons dependency to version 1.21
+- Dependency version bump for latest bug fixes and improvements
+
+## [1.15] - 2026-05-20
+
+### Changed
+- Automated version bump following comprehensive test suite addition
+- No functional changes in this release
+
 ## [1.14] - 2026-05-20
 
 ### Added
