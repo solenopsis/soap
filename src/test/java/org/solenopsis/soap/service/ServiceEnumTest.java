@@ -5,13 +5,29 @@ import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+/**
+ * Unit tests for {@link ServiceEnum}.
+ * <p>
+ * Validates that all service enum constants correctly aggregate QName, WSDL URL,
+ * and factory information for each Salesforce API.
+ * </p>
+ *
+ * @author sfloess
+ */
 class ServiceEnumTest {
 
+    /**
+     * Verifies that all expected enum constants are present.
+     * Should have exactly 5 values for the 5 Salesforce APIs.
+     */
     @Test
     void testAllEnumValues() {
         assertEquals(5, ServiceEnum.values().length);
     }
 
+    /**
+     * Validates that the APEX enum constant correctly aggregates QName, WSDL, and factory.
+     */
     @Test
     void testApex() {
         ServiceEnum apex = ServiceEnum.APEX;
@@ -24,6 +40,9 @@ class ServiceEnumTest {
         assertEquals(ServiceFactoryEnum.APEX, apex.getFactory());
     }
 
+    /**
+     * Validates that the ENTERPRISE enum constant correctly aggregates QName, WSDL, and factory.
+     */
     @Test
     void testEnterprise() {
         ServiceEnum enterprise = ServiceEnum.ENTERPRISE;
@@ -36,6 +55,9 @@ class ServiceEnumTest {
         assertEquals(ServiceFactoryEnum.ENTERPRISE, enterprise.getFactory());
     }
 
+    /**
+     * Validates that the METADATA enum constant correctly aggregates QName, WSDL, and factory.
+     */
     @Test
     void testMetadata() {
         ServiceEnum metadata = ServiceEnum.METADATA;
@@ -48,6 +70,9 @@ class ServiceEnumTest {
         assertEquals(ServiceFactoryEnum.METADATA, metadata.getFactory());
     }
 
+    /**
+     * Validates that the PARTNER enum constant correctly aggregates QName, WSDL, and factory.
+     */
     @Test
     void testPartner() {
         ServiceEnum partner = ServiceEnum.PARTNER;
@@ -60,6 +85,9 @@ class ServiceEnumTest {
         assertEquals(ServiceFactoryEnum.PARTNER, partner.getFactory());
     }
 
+    /**
+     * Validates that the TOOLING enum constant correctly aggregates QName, WSDL, and factory.
+     */
     @Test
     void testTooling() {
         ServiceEnum tooling = ServiceEnum.TOOLING;
@@ -72,6 +100,10 @@ class ServiceEnumTest {
         assertEquals(ServiceFactoryEnum.TOOLING, tooling.getFactory());
     }
 
+    /**
+     * Validates that the {@link Enum#valueOf(Class, String)} method works correctly
+     * for all enum constants.
+     */
     @Test
     void testValueOf() {
         assertEquals(ServiceEnum.APEX, ServiceEnum.valueOf("APEX"));
