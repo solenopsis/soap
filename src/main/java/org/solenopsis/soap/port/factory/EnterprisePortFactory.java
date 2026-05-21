@@ -20,17 +20,12 @@ import org.solenopsis.soap.enterprise.Soap;
 final class EnterprisePortFactory implements PortFactory<Soap> {
     /**
      * Creates an Enterprise port from the provided Enterprise service.
-     * <p>
-     * Note: This method creates a new proxy factory instead of using the service parameter.
-     * </p>
      *
-     * @param service the SforceService instance (currently unused)
+     * @param service the SforceService instance to extract the port from
      * @return a Soap port instance for making Enterprise API calls
      */
     Soap createPort(final SforceService service) {
-        JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
-        factory.setServiceClass(SforceService.class);
-        return (Soap) factory.create();
+        return service.getSoap();
     }
 
     /**
