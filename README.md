@@ -149,13 +149,20 @@ mvn clean install -DskipTests
 ```
 
 **Test Coverage:**
-- Port factory tests - 11 tests
+- Port factory enum tests - 11 tests
+- Port factory implementation tests - 9 tests (Apex, Enterprise, Metadata, Partner, Tooling)
 - Port class tests - 7 tests
 - Port method tests - 8 tests
 - Service enum tests - 7 tests  
 - Service QName tests - 7 tests
 - Service WSDL tests - 8 tests
-- **Total: 48 tests** with 0 failures
+- **Total: 57 tests** with 0 failures
+
+**Custom Code Coverage:**
+- org.solenopsis.soap.service: 100%
+- org.solenopsis.soap.service.factory: 100%
+- org.solenopsis.soap.port: 100%
+- org.solenopsis.soap.port.factory: 92%
 
 ## Dependencies
 
