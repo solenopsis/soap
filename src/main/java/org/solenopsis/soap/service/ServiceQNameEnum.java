@@ -45,9 +45,13 @@ public enum ServiceQNameEnum {
      * </p>
      *
      * @param klass the service class to compute the QName from
+     * @throws IllegalStateException if QName cannot be computed from the service class
      */
     private ServiceQNameEnum(final Class klass) {
         qname = SoapUtil.computeQName(klass);
+        if (qname == null) {
+            throw new IllegalStateException("Failed to compute QName for service class: " + klass);
+        }
     }
 
     /**
@@ -57,7 +61,7 @@ public enum ServiceQNameEnum {
      * this service in SOAP messages.
      * </p>
      *
-     * @return the QName for this service
+     * @return the QName for this service (never null)
      */
     public QName getQName() {
         return qname;

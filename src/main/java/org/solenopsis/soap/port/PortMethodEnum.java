@@ -3,7 +3,10 @@ package org.solenopsis.soap.port;
 import jakarta.xml.ws.WebEndpoint;
 import java.lang.reflect.Method;
 import java.util.Objects;
-import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
+import org.solenopsis.soap.apex.ApexService;
+import org.solenopsis.soap.enterprise.SforceService;
+import org.solenopsis.soap.metadata.MetadataService;
+import org.solenopsis.soap.tooling.SforceServiceService;
 
 /**
  * Convenience enum to hold the {@link WebEndpoint} annotated methods for creating
@@ -18,19 +21,19 @@ import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
  */
 public enum PortMethodEnum {
     /** Apex API port creation method. */
-    APEX(ServiceFactoryEnum.APEX),
+    APEX(ApexService.class),
 
     /** Enterprise API port creation method. */
-    ENTERPRISE(ServiceFactoryEnum.ENTERPRISE),
+    ENTERPRISE(SforceService.class),
 
     /** Metadata API port creation method. */
-    METADATA(ServiceFactoryEnum.METADATA),
+    METADATA(MetadataService.class),
 
     /** Partner API port creation method. */
-    PARTNER(ServiceFactoryEnum.PARTNER),
+    PARTNER(org.solenopsis.soap.partner.SforceService.class),
 
     /** Tooling API port creation method. */
-    TOOLING(ServiceFactoryEnum.TOOLING)
+    TOOLING(SforceServiceService.class)
     ;
 
     /** The Method object representing the port creation method. */
@@ -59,12 +62,12 @@ public enum PortMethodEnum {
 
     /**
      * Constructs a PortMethodEnum by extracting the port creation method from the
-     * specified service factory.
+     * specified service class.
      *
-     * @param service the service factory to extract the port method from
+     * @param serviceClass the service class to extract the port method from
      */
-    private PortMethodEnum(final ServiceFactoryEnum service) {
-        this(service.createService().getClass().getMethods());
+    private PortMethodEnum(final Class<?> serviceClass) {
+        this(serviceClass.getMethods());
     }
 
     /**

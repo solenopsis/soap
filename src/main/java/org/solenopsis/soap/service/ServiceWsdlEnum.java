@@ -40,9 +40,13 @@ public enum ServiceWsdlEnum {
      * Constructs a ServiceWsdlEnum by loading the WSDL file from the classpath.
      *
      * @param resource the classpath resource path to the WSDL file
+     * @throws IllegalStateException if the WSDL resource is not found on the classpath
      */
     ServiceWsdlEnum(final String resource) {
         this.wsdl = ServiceWsdlEnum.class.getClassLoader().getResource(resource);
+        if (this.wsdl == null) {
+            throw new IllegalStateException("WSDL resource not found on classpath: " + resource);
+        }
     }
 
     /**
@@ -52,7 +56,7 @@ public enum ServiceWsdlEnum {
      * the WSDL definition programmatically.
      * </p>
      *
-     * @return the URL to the WSDL file, or null if the resource was not found
+     * @return the URL to the WSDL file (never null)
      */
     public URL getUrl() {
         return wsdl;

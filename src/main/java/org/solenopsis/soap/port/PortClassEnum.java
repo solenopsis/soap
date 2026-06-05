@@ -33,14 +33,14 @@ public enum PortClassEnum {
     TOOLING(SforceServicePortType.class);
 
     /** The Java class representing this port type interface. */
-    final Class portType;
+    final Class<?> portType;
 
     /**
      * Constructs a PortClassEnum with the specified port type class.
      *
      * @param portType the Java class representing the SOAP port interface
      */
-    PortClassEnum(final Class portType) {
+    PortClassEnum(final Class<?> portType) {
         this.portType = portType;
     }
 
@@ -49,7 +49,7 @@ public enum PortClassEnum {
      *
      * @return the Class object representing the SOAP port interface
      */
-    public Class getPortType() {
+    public Class<?> getPortType() {
         return portType;
     }
 }
