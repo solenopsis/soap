@@ -63,10 +63,17 @@ public enum ServiceFactoryEnum {
      * The service is initialized with the appropriate WSDL URL and can be used
      * to obtain port instances for making SOAP calls.
      * </p>
+     * <p>
+     * <strong>Warning:</strong> This method uses an unchecked cast. Callers must ensure
+     * they use the correct enum constant for the desired service type to avoid
+     * {@link ClassCastException} at runtime.
+     * </p>
      *
-     * @param <T> the service type
+     * @param <T> the service type (must match the enum constant's actual type)
      * @return a new Service instance
+     * @throws ClassCastException if the generic type T does not match the actual service type
      */
+    @SuppressWarnings("unchecked")
     public <T extends Service> T createService() {
         return (T) getServiceFactory().get();
     }

@@ -1,5 +1,6 @@
 package org.solenopsis.soap.port.factory;
 
+import java.util.Objects;
 import org.solenopsis.soap.apex.ApexPortType;
 import org.solenopsis.soap.apex.ApexService;
 import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
@@ -19,8 +20,10 @@ final class ApexPortFactory implements PortFactory<ApexPortType> {
      *
      * @param service the ApexService instance to extract the port from
      * @return an ApexPortType instance for making Apex API calls
+     * @throws NullPointerException if service is null
      */
     ApexPortType createPort(final ApexService service) {
+        Objects.requireNonNull(service, "service cannot be null");
         return service.getApex();
     }
 
