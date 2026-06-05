@@ -23,7 +23,7 @@ class PartnerPortFactoryTest {
     @Test
     void testCreatePortFromService() {
         PartnerPortFactory factory = new PartnerPortFactory();
-        SforceService service = ServiceFactoryEnum.PARTNER.createService();
+        SforceService service = (SforceService) ServiceFactoryEnum.PARTNER.createService();
         Soap port = factory.createPort(service);
         assertNotNull(port);
     }

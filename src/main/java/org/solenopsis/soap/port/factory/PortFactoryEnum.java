@@ -55,10 +55,17 @@ public enum PortFactoryEnum {
 
     /**
      * Returns the underlying port factory.
+     * <p>
+     * <strong>Warning:</strong> This method uses an unchecked cast. Callers must ensure
+     * they use the correct enum constant for the desired port type to avoid
+     * {@link ClassCastException} at runtime.
+     * </p>
      *
-     * @param <T> the port type
+     * @param <T> the port type (must match the enum constant's actual type)
      * @return the PortFactory for creating port instances
+     * @throws ClassCastException if the generic type T does not match the actual port type
      */
+    @SuppressWarnings("unchecked")
     public <T> PortFactory<T> getPortFactory() {
         return factory;
     }

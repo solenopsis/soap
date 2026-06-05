@@ -1,6 +1,5 @@
 package org.solenopsis.soap.port.factory;
 
-import java.util.Objects;
 import org.solenopsis.soap.partner.SforceService;
 import org.solenopsis.soap.partner.Soap;
 import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
@@ -22,10 +21,8 @@ final class PartnerPortFactory implements PortFactory<Soap> {
      *
      * @param service the SforceService instance to extract the port from
      * @return a Soap port instance for making Partner API calls
-     * @throws NullPointerException if service is null
      */
     Soap createPort(final SforceService service) {
-        Objects.requireNonNull(service, "service cannot be null");
         return service.getSoap();
     }
 
@@ -40,6 +37,6 @@ final class PartnerPortFactory implements PortFactory<Soap> {
      */
     @Override
     public Soap get() {
-        return createPort(ServiceFactoryEnum.PARTNER.createService());
+        return createPort((SforceService) ServiceFactoryEnum.PARTNER.createService());
     }
 }

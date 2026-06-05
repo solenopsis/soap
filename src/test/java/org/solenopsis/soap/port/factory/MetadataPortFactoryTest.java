@@ -23,7 +23,7 @@ class MetadataPortFactoryTest {
     @Test
     void testCreatePortFromService() {
         MetadataPortFactory factory = new MetadataPortFactory();
-        MetadataService service = ServiceFactoryEnum.METADATA.createService();
+        MetadataService service = (MetadataService) ServiceFactoryEnum.METADATA.createService();
         MetadataPortType port = factory.createPort(service);
         assertNotNull(port);
     }

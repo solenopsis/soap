@@ -15,15 +15,32 @@ import org.solenopsis.soap.service.ServiceWsdlEnum;
  */
 final class MetadataServiceFactory implements ServiceFactory<MetadataService> {
     /**
-     * Creates a new MetadataService instance.
+     * Cached service instance for reuse across all calls.
+     * Volatile ensures visibility of the instance across threads.
+     */
+    private volatile MetadataService instance;
+
+    /**
+     * Returns the singleton MetadataService instance.
      * <p>
-     * The service is initialized with the Metadata WSDL URL from the classpath.
+     * Uses double-checked locking to ensure thread-safe lazy initialization.
+     * The service is initialized with the Metadata WSDL URL from the classpath
+     * on first access and reused for all subsequent calls.
      * </p>
      *
-     * @return a new MetadataService instance
+     * @return the singleton MetadataService instance
      */
     @Override
     public MetadataService get() {
-        return new MetadataService(ServiceWsdlEnum.METADATA.getUrl());
+        MetadataService result = instance;
+        if (result == null) {
+            synchronized (this) {
+                result = instance;
+                if (result == null) {
+                    instance = result = new MetadataService(ServiceWsdlEnum.METADATA.getUrl());
+                }
+            }
+        }
+        return result;
     }
 }

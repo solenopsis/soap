@@ -1,6 +1,5 @@
 package org.solenopsis.soap.port.factory;
 
-import java.util.Objects;
 import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
 import org.solenopsis.soap.tooling.SforceServicePortType;
 import org.solenopsis.soap.tooling.SforceServiceService;
@@ -21,10 +20,8 @@ final class ToolingPortFactory implements PortFactory<SforceServicePortType> {
      *
      * @param service the SforceServiceService instance to extract the port from
      * @return a SforceServicePortType instance for making Tooling API calls
-     * @throws NullPointerException if service is null
      */
     SforceServicePortType createPort(final SforceServiceService service) {
-        Objects.requireNonNull(service, "service cannot be null");
         return service.getSforceService();
     }
 
@@ -39,6 +36,6 @@ final class ToolingPortFactory implements PortFactory<SforceServicePortType> {
      */
     @Override
     public SforceServicePortType get() {
-        return createPort(ServiceFactoryEnum.TOOLING.createService());
+        return createPort((SforceServiceService) ServiceFactoryEnum.TOOLING.createService());
     }
 }

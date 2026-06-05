@@ -15,15 +15,32 @@ import org.solenopsis.soap.tooling.SforceServiceService;
  */
 final class ToolingServiceFactory implements ServiceFactory<SforceServiceService> {
     /**
-     * Creates a new Tooling SforceServiceService instance.
+     * Cached service instance for reuse across all calls.
+     * Volatile ensures visibility of the instance across threads.
+     */
+    private volatile SforceServiceService instance;
+
+    /**
+     * Returns the singleton Tooling SforceServiceService instance.
      * <p>
-     * The service is initialized with the Tooling WSDL URL from the classpath.
+     * Uses double-checked locking to ensure thread-safe lazy initialization.
+     * The service is initialized with the Tooling WSDL URL from the classpath
+     * on first access and reused for all subsequent calls.
      * </p>
      *
-     * @return a new SforceServiceService instance for the Tooling API
+     * @return the singleton SforceServiceService instance for the Tooling API
      */
     @Override
     public SforceServiceService get() {
-        return new SforceServiceService(ServiceWsdlEnum.TOOLING.getUrl());
+        SforceServiceService result = instance;
+        if (result == null) {
+            synchronized (this) {
+                result = instance;
+                if (result == null) {
+                    instance = result = new SforceServiceService(ServiceWsdlEnum.TOOLING.getUrl());
+                }
+            }
+        }
+        return result;
     }
 }

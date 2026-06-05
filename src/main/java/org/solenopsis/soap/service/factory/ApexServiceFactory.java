@@ -14,15 +14,32 @@ import org.solenopsis.soap.service.ServiceWsdlEnum;
  */
 final class ApexServiceFactory implements ServiceFactory<ApexService> {
     /**
-     * Creates a new ApexService instance.
+     * Cached service instance for reuse across all calls.
+     * Volatile ensures visibility of the instance across threads.
+     */
+    private volatile ApexService instance;
+
+    /**
+     * Returns the singleton ApexService instance.
      * <p>
-     * The service is initialized with the Apex WSDL URL from the classpath.
+     * Uses double-checked locking to ensure thread-safe lazy initialization.
+     * The service is initialized with the Apex WSDL URL from the classpath
+     * on first access and reused for all subsequent calls.
      * </p>
      *
-     * @return a new ApexService instance
+     * @return the singleton ApexService instance
      */
     @Override
     public ApexService get() {
-        return new ApexService(ServiceWsdlEnum.APEX.getUrl());
+        ApexService result = instance;
+        if (result == null) {
+            synchronized (this) {
+                result = instance;
+                if (result == null) {
+                    instance = result = new ApexService(ServiceWsdlEnum.APEX.getUrl());
+                }
+            }
+        }
+        return result;
     }
 }

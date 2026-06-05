@@ -15,15 +15,32 @@ import org.solenopsis.soap.service.ServiceWsdlEnum;
  */
 final class PartnerServiceFactory implements ServiceFactory<SforceService> {
     /**
-     * Creates a new Partner SforceService instance.
+     * Cached service instance for reuse across all calls.
+     * Volatile ensures visibility of the instance across threads.
+     */
+    private volatile SforceService instance;
+
+    /**
+     * Returns the singleton Partner SforceService instance.
      * <p>
-     * The service is initialized with the Partner WSDL URL from the classpath.
+     * Uses double-checked locking to ensure thread-safe lazy initialization.
+     * The service is initialized with the Partner WSDL URL from the classpath
+     * on first access and reused for all subsequent calls.
      * </p>
      *
-     * @return a new SforceService instance for the Partner API
+     * @return the singleton SforceService instance for the Partner API
      */
     @Override
     public SforceService get() {
-        return new SforceService(ServiceWsdlEnum.PARTNER.getUrl());
+        SforceService result = instance;
+        if (result == null) {
+            synchronized (this) {
+                result = instance;
+                if (result == null) {
+                    instance = result = new SforceService(ServiceWsdlEnum.PARTNER.getUrl());
+                }
+            }
+        }
+        return result;
     }
 }

@@ -23,7 +23,7 @@ class ApexPortFactoryTest {
     @Test
     void testCreatePortFromService() {
         ApexPortFactory factory = new ApexPortFactory();
-        ApexService service = ServiceFactoryEnum.APEX.createService();
+        ApexService service = (ApexService) ServiceFactoryEnum.APEX.createService();
         ApexPortType port = factory.createPort(service);
         assertNotNull(port);
     }

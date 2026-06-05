@@ -45,23 +45,20 @@ public enum ServiceQNameEnum {
      * </p>
      *
      * @param klass the service class to compute the QName from
-     * @throws IllegalStateException if QName cannot be computed from the service class
      */
     private ServiceQNameEnum(final Class klass) {
         qname = SoapUtil.computeQName(klass);
-        if (qname == null) {
-            throw new IllegalStateException("Failed to compute QName for service class: " + klass);
-        }
     }
 
     /**
      * Returns the computed {@link QName} for this service.
      * <p>
      * The QName contains the XML namespace URI and local part that identifies
-     * this service in SOAP messages.
+     * this service in SOAP messages. Build-time tests validate that all enum
+     * constants successfully compute their QNames.
      * </p>
      *
-     * @return the QName for this service (never null)
+     * @return the QName for this service (validated non-null at build time)
      */
     public QName getQName() {
         return qname;

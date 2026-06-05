@@ -23,7 +23,7 @@ class ToolingPortFactoryTest {
     @Test
     void testCreatePortFromService() {
         ToolingPortFactory factory = new ToolingPortFactory();
-        SforceServiceService service = ServiceFactoryEnum.TOOLING.createService();
+        SforceServiceService service = (SforceServiceService) ServiceFactoryEnum.TOOLING.createService();
         SforceServicePortType port = factory.createPort(service);
         assertNotNull(port);
     }

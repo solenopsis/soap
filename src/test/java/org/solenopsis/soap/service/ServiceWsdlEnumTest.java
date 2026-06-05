@@ -118,4 +118,22 @@ class ServiceWsdlEnumTest {
         assertEquals(ServiceWsdlEnum.PARTNER, ServiceWsdlEnum.valueOf("PARTNER"));
         assertEquals(ServiceWsdlEnum.TOOLING, ServiceWsdlEnum.valueOf("TOOLING"));
     }
+
+    /**
+     * Validates that all WSDL resources exist at build time.
+     * <p>
+     * This test eagerly accesses all enum constants and calls {@code getUrl()}
+     * on each, ensuring that missing WSDL files are caught during the Maven test
+     * phase rather than at runtime. This provides a build-time safety net for
+     * packaging errors.
+     * </p>
+     */
+    @Test
+    void testAllWsdlResourcesExistAtBuildTime() {
+        for (ServiceWsdlEnum wsdlEnum : ServiceWsdlEnum.values()) {
+            URL url = wsdlEnum.getUrl();
+            assertNotNull(url,
+                "WSDL resource for " + wsdlEnum.name() + " should not be null");
+        }
+    }
 }

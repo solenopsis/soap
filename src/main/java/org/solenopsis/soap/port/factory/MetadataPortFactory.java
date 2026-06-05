@@ -1,6 +1,5 @@
 package org.solenopsis.soap.port.factory;
 
-import java.util.Objects;
 import org.solenopsis.soap.metadata.MetadataPortType;
 import org.solenopsis.soap.metadata.MetadataService;
 import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
@@ -21,10 +20,8 @@ final class MetadataPortFactory implements PortFactory<MetadataPortType> {
      *
      * @param service the MetadataService instance to extract the port from
      * @return a MetadataPortType instance for making Metadata API calls
-     * @throws NullPointerException if service is null
      */
     MetadataPortType createPort(final MetadataService service) {
-        Objects.requireNonNull(service, "service cannot be null");
         return service.getMetadata();
     }
 
@@ -39,6 +36,6 @@ final class MetadataPortFactory implements PortFactory<MetadataPortType> {
      */
     @Override
     public MetadataPortType get() {
-        return createPort(ServiceFactoryEnum.METADATA.createService());
+        return createPort((MetadataService) ServiceFactoryEnum.METADATA.createService());
     }
 }
