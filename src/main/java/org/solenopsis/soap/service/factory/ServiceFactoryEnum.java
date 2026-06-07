@@ -60,11 +60,17 @@ public enum ServiceFactoryEnum {
     /**
      * Creates a JAX-WS Service instance for this API.
      * <p>
+     * <strong>Note:</strong> This method returns a cached singleton instance.
+     * The service is lazily initialized on first access using thread-safe
+     * double-checked locking and reused for all subsequent calls. This improves
+     * performance by avoiding repeated WSDL parsing (6.6MB total across all services).
+     * </p>
+     * <p>
      * The service is initialized with the appropriate WSDL URL and can be used
      * to obtain port instances for making SOAP calls.
      * </p>
      *
-     * @return a new Service instance of the type appropriate for this enum constant
+     * @return a cached Service instance of the type appropriate for this enum constant
      */
     public Service createService() {
         return getServiceFactory().get();
