@@ -33,7 +33,7 @@ public enum PortClassEnum {
     TOOLING(SforceServicePortType.class);
 
     /** The Java class representing this port type interface. */
-    final Class<?> portType;
+    private final Class<?> portType;
 
     /**
      * Constructs a PortClassEnum with the specified port type class.
