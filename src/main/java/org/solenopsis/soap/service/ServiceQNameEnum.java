@@ -59,8 +59,12 @@ public enum ServiceQNameEnum {
      * </p>
      *
      * @return the QName for this service (validated non-null at build time)
+     * @throws IllegalStateException if the QName could not be computed
      */
     public QName getQName() {
+        if (qname == null) {
+            throw new IllegalStateException("QName could not be computed for " + this.name());
+        }
         return qname;
     }
 }
