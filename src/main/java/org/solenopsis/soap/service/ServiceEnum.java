@@ -80,5 +80,5 @@ public enum ServiceEnum {
      */
     public ServiceFactoryEnum getFactory() {
         return factory;
-    };
+    }
 }
