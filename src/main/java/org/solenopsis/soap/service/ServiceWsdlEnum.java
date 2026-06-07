@@ -33,7 +33,14 @@ public enum ServiceWsdlEnum {
     TOOLING("wsdl/soap-tooling.wsdl"),
     ;
 
-    /** The URL pointing to the WSDL file on the classpath. */
+    /**
+     * The URL pointing to the WSDL file on the classpath, or null if resource not found.
+     * <p>
+     * Validation is deferred to {@link #getUrl()} to avoid ExceptionInInitializerError
+     * during enum initialization. The final modifier ensures immutability after
+     * construction, while null-checking is performed at access time.
+     * </p>
+     */
     final URL wsdl;
 
     /**
