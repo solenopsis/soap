@@ -202,6 +202,13 @@ The library currently supports Salesforce API version as defined in the WSDL fil
 3. Add tests for new functionality
 4. Update documentation
 
+## Documentation
+
+- **[API Reference](API.md)** - Complete API documentation with examples
+- **[Architecture](ARCHITECTURE.md)** - Design patterns and architecture decisions
+- **[Changelog](CHANGELOG.md)** - Version history and release notes
+- **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community guidelines
+
 ## License
 
 GNU General Public License, Version 3 - See [LICENSE](LICENSE) file
