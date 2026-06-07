@@ -80,10 +80,24 @@ public enum PortFactoryEnum {
      * After creation, use {@link SoapUtil#setUrl(Object, String)} or
      * {@link #createPort(String)} to point to a specific Salesforce instance.
      * </p>
+     * <p>
+     * <strong>Type Safety Warning:</strong> This method uses an unchecked cast.
+     * Callers must ensure they use the correct enum constant for the desired port type
+     * to avoid {@link ClassCastException} at runtime. For example:
+     * <pre>
+     * // Correct usage
+     * MetadataPortType port = PortFactoryEnum.METADATA.createPort();
      *
-     * @param <T> the port type
+     * // WRONG - will throw ClassCastException
+     * Soap port = PortFactoryEnum.METADATA.createPort(); // METADATA != ENTERPRISE/PARTNER
+     * </pre>
+     * </p>
+     *
+     * @param <T> the port type (must match the enum constant's actual type)
      * @return a new SOAP port instance
+     * @throws ClassCastException if the generic type T does not match the actual port type
      */
+    @SuppressWarnings("unchecked")
     public <T> T createPort() {
         return (T) getPortFactory().get();
     }
