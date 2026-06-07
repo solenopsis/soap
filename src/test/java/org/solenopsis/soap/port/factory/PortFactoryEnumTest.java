@@ -113,4 +113,13 @@ class PortFactoryEnumTest {
         assertThrows(IllegalArgumentException.class, () ->
             PortFactoryEnum.METADATA.createPort("   "));
     }
+
+    /**
+     * Validates that port creation with a malformed URL throws {@link IllegalArgumentException}.
+     */
+    @Test
+    void testCreatePortWithMalformedUrl() {
+        assertThrows(IllegalArgumentException.class, () ->
+            PortFactoryEnum.METADATA.createPort("not-a-valid-url"));
+    }
 }

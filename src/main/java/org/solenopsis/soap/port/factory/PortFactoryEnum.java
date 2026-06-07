@@ -1,5 +1,8 @@
 package org.solenopsis.soap.port.factory;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.flossware.jcommons.util.SoapUtil;
 
 /**
@@ -100,9 +103,14 @@ public enum PortFactoryEnum {
      * @param <T> the port type
      * @param url the SOAP endpoint URL to use
      * @return a new SOAP port instance configured with the specified URL
-     * @throws IllegalArgumentException if the URL is null, empty, or blank
+     * @throws IllegalArgumentException if the URL is null, empty, blank, or malformed
      */
     public <T> T createPort(final String url) {
+        try {
+            new URL(url);
+        } catch (MalformedURLException e) {
+            throw new IllegalArgumentException("Invalid URL: " + url, e);
+        }
         return SoapUtil.setUrl(createPort(), url);
     }
 }
