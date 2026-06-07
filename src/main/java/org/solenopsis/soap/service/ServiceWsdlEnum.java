@@ -42,7 +42,7 @@ public enum ServiceWsdlEnum {
      * @param resource the classpath resource path to the WSDL file
      */
     ServiceWsdlEnum(final String resource) {
-        this.wsdl = ServiceWsdlEnum.class.getClassLoader().getResource(resource);
+        this.wsdl = ServiceWsdlEnum.class.getResource("/" + resource);
     }
 
     /**
