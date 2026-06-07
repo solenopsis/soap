@@ -16,16 +16,6 @@ import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
  */
 final class MetadataPortFactory implements PortFactory<MetadataPortType> {
     /**
-     * Creates a Metadata port from the provided Metadata service.
-     *
-     * @param service the MetadataService instance to extract the port from
-     * @return a MetadataPortType instance for making Metadata API calls
-     */
-    MetadataPortType createPort(final MetadataService service) {
-        return service.getMetadata();
-    }
-
-    /**
      * Creates a new Metadata API port instance.
      * <p>
      * This method creates the underlying Metadata service and extracts its port.
@@ -36,6 +26,6 @@ final class MetadataPortFactory implements PortFactory<MetadataPortType> {
      */
     @Override
     public MetadataPortType get() {
-        return createPort((MetadataService) ServiceFactoryEnum.METADATA.createService());
+        return ((MetadataService) ServiceFactoryEnum.METADATA.createService()).getMetadata();
     }
 }

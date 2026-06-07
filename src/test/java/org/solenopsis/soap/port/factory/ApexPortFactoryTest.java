@@ -18,23 +18,22 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class ApexPortFactoryTest {
 
     /**
-     * Validates that creating a port from an ApexService instance works correctly.
-     */
-    @Test
-    void testCreatePortFromService() {
-        ApexPortFactory factory = new ApexPortFactory();
-        ApexService service = (ApexService) ServiceFactoryEnum.APEX.createService();
-        ApexPortType port = factory.createPort(service);
-        assertNotNull(port);
-    }
-
-    /**
      * Validates that the factory's get() method creates a valid port instance.
      */
     @Test
     void testGet() {
         ApexPortFactory factory = new ApexPortFactory();
         ApexPortType port = factory.get();
+        assertNotNull(port);
+    }
+
+    /**
+     * Validates that creating a port from an ApexService instance works correctly.
+     */
+    @Test
+    void testCreatePortFromService() {
+        ApexService service = (ApexService) ServiceFactoryEnum.APEX.createService();
+        ApexPortType port = service.getApex();
         assertNotNull(port);
     }
 }

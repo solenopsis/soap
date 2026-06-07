@@ -18,23 +18,22 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class ToolingPortFactoryTest {
 
     /**
-     * Validates that creating a port from a Tooling SforceServiceService instance works correctly.
-     */
-    @Test
-    void testCreatePortFromService() {
-        ToolingPortFactory factory = new ToolingPortFactory();
-        SforceServiceService service = (SforceServiceService) ServiceFactoryEnum.TOOLING.createService();
-        SforceServicePortType port = factory.createPort(service);
-        assertNotNull(port);
-    }
-
-    /**
      * Validates that the factory's get() method creates a valid port instance.
      */
     @Test
     void testGet() {
         ToolingPortFactory factory = new ToolingPortFactory();
         SforceServicePortType port = factory.get();
+        assertNotNull(port);
+    }
+
+    /**
+     * Validates that creating a port from a Tooling SforceServiceService instance works correctly.
+     */
+    @Test
+    void testCreatePortFromService() {
+        SforceServiceService service = (SforceServiceService) ServiceFactoryEnum.TOOLING.createService();
+        SforceServicePortType port = service.getSforceService();
         assertNotNull(port);
     }
 }

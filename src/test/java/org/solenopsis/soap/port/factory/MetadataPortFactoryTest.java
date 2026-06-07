@@ -18,23 +18,22 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class MetadataPortFactoryTest {
 
     /**
-     * Validates that creating a port from a MetadataService instance works correctly.
-     */
-    @Test
-    void testCreatePortFromService() {
-        MetadataPortFactory factory = new MetadataPortFactory();
-        MetadataService service = (MetadataService) ServiceFactoryEnum.METADATA.createService();
-        MetadataPortType port = factory.createPort(service);
-        assertNotNull(port);
-    }
-
-    /**
      * Validates that the factory's get() method creates a valid port instance.
      */
     @Test
     void testGet() {
         MetadataPortFactory factory = new MetadataPortFactory();
         MetadataPortType port = factory.get();
+        assertNotNull(port);
+    }
+
+    /**
+     * Validates that creating a port from a MetadataService instance works correctly.
+     */
+    @Test
+    void testCreatePortFromService() {
+        MetadataService service = (MetadataService) ServiceFactoryEnum.METADATA.createService();
+        MetadataPortType port = service.getMetadata();
         assertNotNull(port);
     }
 }

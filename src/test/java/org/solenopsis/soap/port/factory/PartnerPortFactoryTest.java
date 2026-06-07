@@ -18,23 +18,22 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class PartnerPortFactoryTest {
 
     /**
-     * Validates that creating a port from a Partner SforceService instance works correctly.
-     */
-    @Test
-    void testCreatePortFromService() {
-        PartnerPortFactory factory = new PartnerPortFactory();
-        SforceService service = (SforceService) ServiceFactoryEnum.PARTNER.createService();
-        Soap port = factory.createPort(service);
-        assertNotNull(port);
-    }
-
-    /**
      * Validates that the factory's get() method creates a valid port instance.
      */
     @Test
     void testGet() {
         PartnerPortFactory factory = new PartnerPortFactory();
         Soap port = factory.get();
+        assertNotNull(port);
+    }
+
+    /**
+     * Validates that creating a port from a Partner SforceService instance works correctly.
+     */
+    @Test
+    void testCreatePortFromService() {
+        SforceService service = (SforceService) ServiceFactoryEnum.PARTNER.createService();
+        Soap port = service.getSoap();
         assertNotNull(port);
     }
 }

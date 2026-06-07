@@ -15,16 +15,6 @@ import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
  */
 final class ApexPortFactory implements PortFactory<ApexPortType> {
     /**
-     * Creates an Apex port from the provided Apex service.
-     *
-     * @param service the ApexService instance to extract the port from
-     * @return an ApexPortType instance for making Apex API calls
-     */
-    ApexPortType createPort(final ApexService service) {
-        return service.getApex();
-    }
-
-    /**
      * Creates a new Apex API port instance.
      * <p>
      * This method creates the underlying Apex service and extracts its port.
@@ -35,6 +25,6 @@ final class ApexPortFactory implements PortFactory<ApexPortType> {
      */
     @Override
     public ApexPortType get() {
-        return createPort((ApexService) ServiceFactoryEnum.APEX.createService());
+        return ((ApexService) ServiceFactoryEnum.APEX.createService()).getApex();
     }
 }

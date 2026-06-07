@@ -16,16 +16,6 @@ import org.solenopsis.soap.tooling.SforceServiceService;
  */
 final class ToolingPortFactory implements PortFactory<SforceServicePortType> {
     /**
-     * Creates a Tooling port from the provided Tooling service.
-     *
-     * @param service the SforceServiceService instance to extract the port from
-     * @return a SforceServicePortType instance for making Tooling API calls
-     */
-    SforceServicePortType createPort(final SforceServiceService service) {
-        return service.getSforceService();
-    }
-
-    /**
      * Creates a new Tooling API port instance.
      * <p>
      * This method creates the underlying Tooling service and extracts its port.
@@ -36,6 +26,6 @@ final class ToolingPortFactory implements PortFactory<SforceServicePortType> {
      */
     @Override
     public SforceServicePortType get() {
-        return createPort((SforceServiceService) ServiceFactoryEnum.TOOLING.createService());
+        return ((SforceServiceService) ServiceFactoryEnum.TOOLING.createService()).getSforceService();
     }
 }

@@ -16,16 +16,6 @@ import org.solenopsis.soap.service.factory.ServiceFactoryEnum;
  */
 final class EnterprisePortFactory implements PortFactory<Soap> {
     /**
-     * Creates an Enterprise port from the provided Enterprise service.
-     *
-     * @param service the SforceService instance to extract the port from
-     * @return a Soap instance for making Enterprise API calls
-     */
-    Soap createPort(final SforceService service) {
-        return service.getSoap();
-    }
-
-    /**
      * Creates a new Enterprise API port instance.
      * <p>
      * This method creates the underlying Enterprise service and extracts its port.
@@ -36,6 +26,6 @@ final class EnterprisePortFactory implements PortFactory<Soap> {
      */
     @Override
     public Soap get() {
-        return createPort((SforceService) ServiceFactoryEnum.ENTERPRISE.createService());
+        return ((SforceService) ServiceFactoryEnum.ENTERPRISE.createService()).getSoap();
     }
 }
