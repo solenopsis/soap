@@ -1,5 +1,6 @@
 package org.solenopsis.soap.service;
 
+import java.io.InputStream;
 import java.net.URL;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -134,6 +135,27 @@ class ServiceWsdlEnumTest {
             URL url = wsdlEnum.getUrl();
             assertNotNull(url,
                 "WSDL resource for " + wsdlEnum.name() + " should not be null");
+        }
+    }
+
+    /**
+     * Validates that all WSDL resources are readable and non-empty.
+     * <p>
+     * This test verifies that not only do the WSDL files exist, but they can
+     * be opened and contain data. This catches issues with corrupted files,
+     * permission problems, or packaging issues.
+     * </p>
+     */
+    @Test
+    void testAllWsdlResourcesAreReadable() throws Exception {
+        for (ServiceWsdlEnum wsdlEnum : ServiceWsdlEnum.values()) {
+            URL url = wsdlEnum.getUrl();
+            assertNotNull(url, "WSDL resource for " + wsdlEnum.name() + " should not be null");
+
+            try (InputStream is = url.openStream()) {
+                assertTrue(is.available() > 0,
+                    "WSDL resource for " + wsdlEnum.name() + " should be readable and non-empty");
+            }
         }
     }
 }
