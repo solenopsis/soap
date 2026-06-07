@@ -52,7 +52,7 @@ public enum PortFactoryEnum {
      *
      * @param factory the PortFactory implementation for this API
      */
-    private PortFactoryEnum(final PortFactory factory) {
+    PortFactoryEnum(final PortFactory factory) {
         this.factory = factory;
     }
 

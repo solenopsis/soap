@@ -46,7 +46,7 @@ public enum ServiceQNameEnum {
      *
      * @param klass the service class to compute the QName from
      */
-    private ServiceQNameEnum(final Class klass) {
+    ServiceQNameEnum(final Class klass) {
         qname = SoapUtil.computeQName(klass);
     }
 

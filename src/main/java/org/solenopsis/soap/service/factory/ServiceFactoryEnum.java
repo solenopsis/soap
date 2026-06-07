@@ -44,7 +44,7 @@ public enum ServiceFactoryEnum {
      *
      * @param serviceFactory the ServiceFactory implementation for this API
      */
-    private ServiceFactoryEnum(final ServiceFactory<?> serviceFactory) {
+    ServiceFactoryEnum(final ServiceFactory<?> serviceFactory) {
         this.serviceFactory = serviceFactory;
     }
 

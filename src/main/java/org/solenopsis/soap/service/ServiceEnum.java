@@ -49,7 +49,7 @@ public enum ServiceEnum {
      * @param wsdl the WSDL URL enum for this service
      * @param factory the factory enum for creating service instances
      */
-    private ServiceEnum(final ServiceQNameEnum qname, final ServiceWsdlEnum wsdl, ServiceFactoryEnum factory) {
+    ServiceEnum(final ServiceQNameEnum qname, final ServiceWsdlEnum wsdl, ServiceFactoryEnum factory) {
         this.qname = qname;
         this.wsdl = wsdl;
         this.factory = factory;

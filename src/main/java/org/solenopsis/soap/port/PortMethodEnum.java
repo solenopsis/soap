@@ -46,7 +46,7 @@ public enum PortMethodEnum {
      * @param methods array of methods to search for the port creation method
      * @throws NullPointerException if no suitable method is found
      */
-    private PortMethodEnum(final Method[] methods) {
+    PortMethodEnum(final Method[] methods) {
         Method toSet = null;
 
         for (final Method method : methods) {
@@ -66,7 +66,7 @@ public enum PortMethodEnum {
      *
      * @param serviceClass the service class to extract the port method from
      */
-    private PortMethodEnum(final Class<?> serviceClass) {
+    PortMethodEnum(final Class<?> serviceClass) {
         this(serviceClass.getMethods());
     }
 
