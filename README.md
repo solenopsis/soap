@@ -31,7 +31,7 @@ This library provides pre-generated SOAP clients for Salesforce APIs using Apach
 <dependency>
     <groupId>org.solenopsis</groupId>
     <artifactId>soap</artifactId>
-    <version>1.18</version>
+    <version>1.22</version>
 </dependency>
 
 <repositories>
@@ -78,13 +78,13 @@ ServiceFactoryEnum factory = metadata.getFactory();
 ApexPortType apexPort = PortFactoryEnum.APEX.createPort(url);
 
 // Enterprise API
-SoapPortType enterprisePort = PortFactoryEnum.ENTERPRISE.createPort(url);
+Soap enterprisePort = PortFactoryEnum.ENTERPRISE.createPort(url);
 
 // Metadata API
 MetadataPortType metadataPort = PortFactoryEnum.METADATA.createPort(url);
 
 // Partner API  
-SoapPortType partnerPort = PortFactoryEnum.PARTNER.createPort(url);
+Soap partnerPort = PortFactoryEnum.PARTNER.createPort(url);
 
 // Tooling API
 SforceServicePortType toolingPort = PortFactoryEnum.TOOLING.createPort(url);
@@ -121,20 +121,20 @@ This reads WSDL files from `src/main/resources/wsdl/` and generates Java classes
 
 The library includes Salesforce WSDL files for:
 
-- `soap-apex.wsdl` - Apex API
-- `soap-enterprise.wsdl` - Enterprise API  
-- `soap-metadata.wsdl` - Metadata API
-- `soap-partner.wsdl` - Partner API
-- `soap-tooling.wsdl` - Tooling API
+- `soap-apex.wsdl` (25KB) - Apex API
+- `soap-enterprise.wsdl` (3.0MB) - Enterprise API  
+- `soap-metadata.wsdl` (1.2MB) - Metadata API
+- `soap-partner.wsdl` (557KB) - Partner API
+- `soap-tooling.wsdl` (1.9MB) - Tooling API
 
 These are official Salesforce WSDL files that define the SOAP interfaces.
 
 ## Requirements
 
 - **Java 17+**
-- **Apache CXF 4.0+** - SOAP framework
-- **FlossWare JCommons 1.10+** - Foundation utilities
-- **Apache Commons Lang3 3.18+**
+- **Apache CXF 4.0.9** - SOAP framework
+- **FlossWare JCommons 1.21** - Foundation utilities
+- **Apache Commons Lang3 3.20.0**
 
 ## Testing
 
@@ -149,14 +149,14 @@ mvn clean install -DskipTests
 ```
 
 **Test Coverage:**
-- Port factory enum tests - 11 tests
+- Port factory enum tests - 12 tests
 - Port factory implementation tests - 10 tests (Apex, Enterprise, Metadata, Partner, Tooling)
 - Port class tests - 7 tests
 - Port method tests - 8 tests
 - Service enum tests - 7 tests  
 - Service QName tests - 7 tests
-- Service WSDL tests - 8 tests
-- **Total: 58 tests** with 0 failures
+- Service WSDL tests - 10 tests
+- **Total: 61 tests** with 0 failures
 
 **Custom Code Coverage:**
 - org.solenopsis.soap.service: 100%
@@ -206,8 +206,6 @@ The library currently supports Salesforce API version as defined in the WSDL fil
 
 - **[API Reference](API.md)** - Complete API documentation with examples
 - **[Architecture](ARCHITECTURE.md)** - Design patterns and architecture decisions
-- **[Changelog](CHANGELOG.md)** - Version history and release notes
-- **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community guidelines
 
 ## License
 

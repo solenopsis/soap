@@ -5,6 +5,44 @@ All notable changes to the Solenopsis SOAP library will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.22] - 2026-07-10
+
+### Added
+- Restored complete documentation suite (README.md, API.md, ARCHITECTURE.md)
+- Added WSDL file sizes to README.md for reference
+- Updated test counts to reflect current 61 tests
+
+### Changed
+- Updated README.md to version 1.22
+- Updated dependency versions in README.md (CXF 4.0.9, JCommons 1.21, Commons Lang3 3.20.0)
+- Updated test breakdown in README.md to match current test suite
+- Removed references to non-existent CHANGELOG.md and CODE_OF_CONDUCT.md from docs
+
+## [1.21] - 2026-06-12
+
+### Added
+- Documentation removal in commit e46ebe1 (later restored in 1.22)
+- Added .claude directory to .gitignore
+
+## [1.20] - 2026-06-09
+
+### Added
+- Comprehensive API and Architecture documentation
+- Package-info.java documentation for 4 packages
+- Type safety warnings to createPort() method
+- Lazy validation pattern documentation in ServiceWsdlEnum
+- Build-time test to verify WSDL resources are readable
+- Consistent null check to ServiceQNameEnum.getQName()
+- Singleton caching behavior documentation in createService()
+
+### Changed
+- Removed redundant private modifiers from enum constructors
+
+## [1.19] - 2026-06-05
+
+### Changed
+- Version bump following documentation improvements
+
 ## [1.18] - 2026-05-21
 
 ### Changed
@@ -138,6 +176,17 @@ Previous versions (1.0 - 1.6) included:
 
 ## Upgrade Guide
 
+### Upgrading to 1.22
+
+#### What's New
+- ✅ Complete documentation suite restored (README, API reference, Architecture docs)
+- ✅ All documentation verified and updated to current code state
+- ✅ 61 comprehensive unit tests (up from 58 in earlier versions)
+- ✅ Accurate dependency versions documented
+
+#### No Breaking Changes
+Version 1.22 is a documentation-only release with no API changes.
+
 ### Upgrading from 1.7 to 1.8
 
 #### Improvements You Get
@@ -174,8 +223,8 @@ Ensure your project uses compatible versions:
 ```xml
 <dependency>
     <groupId>org.flossware</groupId>
-    <artifactId>commons</artifactId>
-    <version>1.9</version>
+    <artifactId>jcommons</artifactId>
+    <version>1.21</version>
 </dependency>
 ```
 
