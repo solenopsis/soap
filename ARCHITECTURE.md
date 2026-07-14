@@ -815,7 +815,7 @@ void testWsdlFilesExist() {
 - WSDL parsing and service creation
 - HTTP transport
 
-**FlossWare JCommons 1.10+**
+**FlossWare Commons Java 1.35+**
 - `SoapUtil.computeQName()` - QName computation
 - `SoapUtil.setUrl()` - Port endpoint configuration
 - Foundation utilities
@@ -849,7 +849,7 @@ void testWsdlFilesExist() {
 **Rationale:**
 - Fewer dependencies = fewer conflicts
 - Standard libraries (Apache CXF, Commons) are stable
-- FlossWare JCommons is companion library by same author
+- FlossWare Commons Java is companion library by same author
 
 ## Evolution and Extensibility
 

@@ -21,7 +21,7 @@ This library provides pre-generated SOAP clients for Salesforce APIs using Apach
 - Factory pattern for easy service/port creation
 - Enum-based API for type-safe service selection
 - QName management for web service endpoints
-- Built on [FlossWare JCommons](https://github.com/FlossWare/jcommons) for SOAP utilities
+- Built on [FlossWare Commons Java](https://github.com/FlossWare/commons-java) for SOAP utilities
 
 ## Installation
 
@@ -170,7 +170,7 @@ These are official Salesforce WSDL files that define the SOAP interfaces.
 
 - **Java 17+**
 - **Apache CXF 4.0.11** - SOAP framework
-- **FlossWare JCommons 1.21** - Foundation utilities
+- **FlossWare Commons Java 1.35** - Foundation utilities
 - **Apache Commons Lang3 3.20.0**
 
 ## Testing
@@ -207,7 +207,7 @@ This library is used by:
 - **[solenopsis/session](https://github.com/solenopsis/session)** - Salesforce session management
 
 And depends on:
-- **[FlossWare/commons](https://github.com/FlossWare/jcommons)** - SOAP and utility functions
+- **[FlossWare/commons-java](https://github.com/FlossWare/commons-java)** - SOAP and utility functions
 
 ## Building from Source
 
@@ -253,7 +253,7 @@ GNU General Public License, Version 3 - See [LICENSE](LICENSE) file
 - **Source**: https://github.com/solenopsis/soap
 - **Issues**: https://github.com/solenopsis/soap/issues
 - **Session Management**: https://github.com/solenopsis/session
-- **Commons Library**: https://github.com/FlossWare/jcommons
+- **Commons Library**: https://github.com/FlossWare/commons-java
 - **Package Repository**: https://packagecloud.io/flossware/java
 
 ## Salesforce API Documentation

@@ -3,7 +3,7 @@ package org.solenopsis.soap.port.factory;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.flossware.jcommons.util.SoapUtil;
+import org.flossware.commons.util.SoapUtil;
 
 /**
  * Enum containing all port type factories for Salesforce SOAP APIs.
