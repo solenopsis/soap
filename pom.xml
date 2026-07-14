@@ -34,7 +34,7 @@
 
         <org.flossware_jcommons>1.21</org.flossware_jcommons>
 
-        <cxf.version>4.0.9</cxf.version>
+        <cxf.version>4.0.11</cxf.version>
 
         <org.junit.jupiter_junit-jupiter-api>5.11.4</org.junit.jupiter_junit-jupiter-api>
         <org.mockito_mockito-core>5.14.2</org.mockito_mockito-core>
@@ -49,6 +49,18 @@
         <developerConnection>scm:git:https://github.com/solenopsis/soap.git</developerConnection>
         <url>https://github.com/solenopsis/soap</url>
     </scm>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-bom</artifactId>
+                <version>${cxf.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <pluginManagement>
@@ -216,6 +228,15 @@
             </plugin>
 
             <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>12.1.0</version>
+                <configuration>
+                    <failBuildOnCVSS>7</failBuildOnCVSS>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-scm-plugin</artifactId>
                 <version>${org.apache.maven.plugins_maven-scm-plugin}</version>
@@ -241,19 +262,16 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxws</artifactId>
-            <version>${cxf.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http</artifactId>
-            <version>${cxf.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http-jetty</artifactId>
-            <version>${cxf.version}</version>
         </dependency>
 
         <dependency>

@@ -90,6 +90,43 @@ Soap partnerPort = PortFactoryEnum.PARTNER.createPort(url);
 SforceServicePortType toolingPort = PortFactoryEnum.TOOLING.createPort(url);
 ```
 
+### Error Handling
+
+```java
+// URL validation — throws IllegalArgumentException for invalid URLs
+try {
+    MetadataPortType port = PortFactoryEnum.METADATA.createPort(endpointUrl);
+} catch (IllegalArgumentException e) {
+    // Thrown for null, empty, blank, malformed, or non-absolute URLs
+    log.error("Invalid endpoint URL: {}", e.getMessage());
+}
+
+// SOAP call errors — standard JAX-WS exceptions
+try {
+    port.listMetadata(queries, apiVersion);
+} catch (WebServiceException e) {
+    if (e.getCause() instanceof java.net.ConnectException) {
+        // Network connectivity failure
+    } else if (e.getCause() instanceof java.net.SocketTimeoutException) {
+        // Request timeout
+    }
+    // Other transport-level errors (SSL, DNS, etc.)
+} catch (SOAPFaultException e) {
+    // Salesforce returned a SOAP fault (invalid session, permission denied, etc.)
+    SOAPFault fault = e.getFault();
+    log.error("SOAP fault: {} - {}", fault.getFaultCode(), fault.getFaultString());
+}
+```
+
+**Common exceptions:**
+
+| Exception | When | Recovery |
+|-----------|------|----------|
+| `IllegalArgumentException` | Invalid URL passed to `createPort(String)` | Fix the URL |
+| `WebServiceException` | Network/transport errors during SOAP calls | Retry with backoff |
+| `SOAPFaultException` | Salesforce returned an error response | Check fault code |
+| `IllegalStateException` | WSDL resource not found on classpath | Check JAR packaging |
+
 ## Architecture
 
 ### Package Structure
@@ -132,7 +169,7 @@ These are official Salesforce WSDL files that define the SOAP interfaces.
 ## Requirements
 
 - **Java 17+**
-- **Apache CXF 4.0.9** - SOAP framework
+- **Apache CXF 4.0.11** - SOAP framework
 - **FlossWare JCommons 1.21** - Foundation utilities
 - **Apache Commons Lang3 3.20.0**
 
