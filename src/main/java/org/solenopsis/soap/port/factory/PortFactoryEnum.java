@@ -1,7 +1,7 @@
 package org.solenopsis.soap.port.factory;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import org.flossware.jcommons.util.SoapUtil;
 
@@ -45,14 +45,14 @@ public enum PortFactoryEnum {
     ;
 
     /** The underlying port factory implementation. */
-    private final PortFactory factory;
+    private final PortFactory<?> factory;
 
     /**
      * Constructs a PortFactoryEnum with the specified factory implementation.
      *
      * @param factory the PortFactory implementation for this API
      */
-    PortFactoryEnum(final PortFactory factory) {
+    PortFactoryEnum(final PortFactory<?> factory) {
         this.factory = factory;
     }
 
@@ -70,7 +70,7 @@ public enum PortFactoryEnum {
      */
     @SuppressWarnings("unchecked")
     public <T> PortFactory<T> getPortFactory() {
-        return factory;
+        return (PortFactory<T>) factory;
     }
 
     /**
@@ -120,11 +120,18 @@ public enum PortFactoryEnum {
      * @throws IllegalArgumentException if the URL is null, empty, blank, or malformed
      */
     public <T> T createPort(final String url) {
+        if (url == null) {
+            throw new IllegalArgumentException("Invalid URL: null");
+        }
+        final String trimmed = url.trim();
         try {
-            new URL(url);
-        } catch (MalformedURLException e) {
+            final URI uri = new URI(trimmed);
+            if (!uri.isAbsolute()) {
+                throw new IllegalArgumentException("Invalid URL: " + url);
+            }
+        } catch (final URISyntaxException e) {
             throw new IllegalArgumentException("Invalid URL: " + url, e);
         }
-        return SoapUtil.setUrl(createPort(), url);
+        return SoapUtil.setUrl(createPort(), trimmed);
     }
 }
