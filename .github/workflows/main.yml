@@ -17,7 +17,7 @@ jobs:
   build:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.pusher.email != 'version-bump@solenopsis.org'
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 30
 
     steps:
       - name: Updating runner
@@ -90,25 +90,6 @@ jobs:
           name: codecov-solenopsis-soap
           fail_ci_if_error: false
 
-      - name: Cache OWASP Dependency Check Database
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2/repository/org/owasp/dependency-check-data
-          key: ${{ runner.os }}-owasp-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-owasp-
-
-      - name: OWASP Dependency Check
-        run: "timeout 2400 mvn dependency-check:check || true"
-        timeout-minutes: 45
-
-      - name: Upload dependency check report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: dependency-check-report
-          path: target/dependency-check-report.html
-          retention-days: 30
 
       - name: Generate JavaDoc
         run: "mvn javadoc:javadoc"
