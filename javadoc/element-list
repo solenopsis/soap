@@ -1,0 +1,9 @@
+org.solenopsis.soap.apex
+org.solenopsis.soap.enterprise
+org.solenopsis.soap.metadata
+org.solenopsis.soap.partner
+org.solenopsis.soap.port
+org.solenopsis.soap.port.factory
+org.solenopsis.soap.service
+org.solenopsis.soap.service.factory
+org.solenopsis.soap.tooling
