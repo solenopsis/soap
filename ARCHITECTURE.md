@@ -815,7 +815,7 @@ void testWsdlFilesExist() {
 - WSDL parsing and service creation
 - HTTP transport
 
-**FlossWare Commons Java 1.37+**
+**FlossWare Commons Java 1.38+**
 - `SoapUtil.computeQName()` - QName computation
 - `SoapUtil.setUrl()` - Port endpoint configuration
 - Foundation utilities

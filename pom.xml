@@ -32,7 +32,7 @@
 
         <org.apache.commons_commons-lang3>3.20.0</org.apache.commons_commons-lang3>
 
-        <org.flossware_commons-java>1.37</org.flossware_commons-java>
+        <org.flossware_commons-java>1.38</org.flossware_commons-java>
 
         <cxf.version>4.0.11</cxf.version>
 

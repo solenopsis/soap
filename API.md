@@ -715,7 +715,7 @@ WSDL files define the supported API version. To update:
 
 **Required Runtime:**
 - Apache CXF 4.0+
-- FlossWare Commons Java 1.37+
+- FlossWare Commons Java 1.38+
 - Apache Commons Lang3 3.18+
 
 See `pom.xml` for exact versions.
