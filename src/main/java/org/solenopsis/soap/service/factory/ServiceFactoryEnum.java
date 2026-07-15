@@ -11,11 +11,11 @@ import jakarta.xml.ws.Service;
  * </p>
  * <p>
  * Example usage:
+ * </p>
  * <pre>
  * MetadataService service = ServiceFactoryEnum.METADATA.createService();
  * MetadataPortType port = service.getMetadata();
  * </pre>
- * </p>
  *
  * @author sfloess
  */

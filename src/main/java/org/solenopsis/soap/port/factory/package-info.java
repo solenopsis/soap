@@ -7,13 +7,14 @@
  * </p>
  * <p>
  * Key classes:
+ * </p>
  * <ul>
  *   <li>{@link org.solenopsis.soap.port.factory.PortFactoryEnum} - Main factory enum for creating ports</li>
  *   <li>{@link org.solenopsis.soap.port.factory.PortFactory} - Interface for port factory implementations</li>
  * </ul>
- * </p>
  * <p>
  * Example usage:
+ * </p>
  * <pre>
  * // Create a port with default endpoint
  * MetadataPortType port = PortFactoryEnum.METADATA.createPort();
@@ -23,7 +24,6 @@
  *     "https://na1.salesforce.com/services/Soap/m/58.0"
  * );
  * </pre>
- * </p>
  * <p>
  * Each API has its own internal factory implementation (ApexPortFactory,
  * EnterprisePortFactory, etc.) that handles the specifics of creating that

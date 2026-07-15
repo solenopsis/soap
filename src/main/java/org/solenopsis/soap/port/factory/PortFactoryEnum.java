@@ -14,6 +14,7 @@ import org.flossware.commons.util.SoapUtil;
  * </p>
  * <p>
  * Example usage:
+ * </p>
  * <pre>
  * // Create port with default endpoint
  * MetadataPortType port = PortFactoryEnum.METADATA.createPort();
@@ -23,7 +24,6 @@ import org.flossware.commons.util.SoapUtil;
  *     "https://na1.salesforce.com/services/Soap/m/58.0"
  * );
  * </pre>
- * </p>
  *
  * @author sfloess
  */
@@ -91,7 +91,6 @@ public enum PortFactoryEnum {
      * // WRONG - will throw ClassCastException
      * Soap port = PortFactoryEnum.METADATA.createPort(); // METADATA != ENTERPRISE/PARTNER
      * </pre>
-     * </p>
      *
      * @param <T> the port type (must match the enum constant's actual type)
      * @return a new SOAP port instance

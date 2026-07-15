@@ -7,13 +7,14 @@
  * </p>
  * <p>
  * Key classes:
+ * </p>
  * <ul>
  *   <li>{@link org.solenopsis.soap.service.factory.ServiceFactoryEnum} - Main factory enum for creating services</li>
  *   <li>{@link org.solenopsis.soap.service.factory.ServiceFactory} - Interface for service factory implementations</li>
  * </ul>
- * </p>
  * <p>
  * Example usage:
+ * </p>
  * <pre>
  * // Create a service instance
  * MetadataService service = (MetadataService) ServiceFactoryEnum.METADATA.createService();
@@ -21,7 +22,6 @@
  * // Get a port from the service
  * MetadataPortType port = service.getMetadata();
  * </pre>
- * </p>
  * <p>
  * <strong>Performance Note:</strong> Service instances are cached as singletons.
  * The factory uses thread-safe lazy initialization (double-checked locking) to
