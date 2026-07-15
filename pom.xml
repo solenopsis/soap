@@ -34,7 +34,7 @@
 
         <org.flossware_commons-java>1.38</org.flossware_commons-java>
 
-        <cxf.version>4.0.11</cxf.version>
+        <cxf.version>4.2.2</cxf.version>
 
         <org.junit.jupiter_junit-jupiter-api>5.11.4</org.junit.jupiter_junit-jupiter-api>
         <org.mockito_mockito-core>5.14.2</org.mockito_mockito-core>
