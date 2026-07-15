@@ -99,8 +99,8 @@ jobs:
             ${{ runner.os }}-owasp-
 
       - name: OWASP Dependency Check
-        run: "mvn dependency-check:check"
-        continue-on-error: true
+        run: "timeout 2400 mvn dependency-check:check || true"
+        timeout-minutes: 45
 
       - name: Upload dependency check report
         uses: actions/upload-artifact@v4
