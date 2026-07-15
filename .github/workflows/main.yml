@@ -90,6 +90,14 @@ jobs:
           name: codecov-solenopsis-soap
           fail_ci_if_error: false
 
+      - name: Cache OWASP Dependency Check Database
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository/org/owasp/dependency-check-data
+          key: ${{ runner.os }}-owasp-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-owasp-
+
       - name: OWASP Dependency Check
         run: "mvn dependency-check:check"
 
